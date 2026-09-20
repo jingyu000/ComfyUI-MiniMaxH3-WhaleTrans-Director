@@ -1,0 +1,1256 @@
+{
+  "id": "42476cc0-ba47-4042-ad72-3802b573afb3",
+  "revision": 0,
+  "last_node_id": 212,
+  "last_link_id": 386,
+  "nodes": [
+    {
+      "id": 126,
+      "type": "BasicGuider",
+      "pos": [
+        -265.0817235947865,
+        5083.7402748197765
+      ],
+      "size": [
+        360,
+        60
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 386
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 377
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            254
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "BasicGuider"
+      }
+    },
+    {
+      "id": 179,
+      "type": "KSamplerSelect",
+      "pos": [
+        -211.87529902731285,
+        5193.174073466617
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            341
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ],
+      "widgets_values_named": {
+        "sampler_name": "euler"
+      }
+    },
+    {
+      "id": 128,
+      "type": "CLIPLoader",
+      "pos": [
+        -1495.9462293764273,
+        5091.377600569795
+      ],
+      "size": [
+        640,
+        120
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            374
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "CLIPLoader",
+        "models": [
+          {
+            "name": "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3\\qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "minimax_h3\\qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "type": "minimax",
+        "device": "default"
+      }
+    },
+    {
+      "id": 119,
+      "type": "VAELoader",
+      "pos": [
+        -1494.30411371666,
+        5272.8694091444395
+      ],
+      "size": [
+        640,
+        70
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            251,
+            375
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "minimax_h3_video_vae_fp16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_fp16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+      }
+    },
+    {
+      "id": 120,
+      "type": "VAELoader",
+      "pos": [
+        -1500.0429320055398,
+        5394.347045722197
+      ],
+      "size": [
+        650,
+        70
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            250,
+            376
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+      }
+    },
+    {
+      "id": 125,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        135.48294166291006,
+        4942.642707360504
+      ],
+      "size": [
+        252.56790292102096,
+        326
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 253
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 254
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 341
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 256
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 378
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            280,
+            281
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 124,
+      "type": "BasicScheduler",
+      "pos": [
+        -260.5927554485883,
+        5322.30691502645
+      ],
+      "size": [
+        348.91735879415046,
+        149.62971135931093
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 385
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            256
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        8,
+        1
+      ],
+      "widgets_values_named": {
+        "scheduler": "simple",
+        "steps": 8,
+        "denoise": 1
+      }
+    },
+    {
+      "id": 129,
+      "type": "RandomNoise",
+      "pos": [
+        -265.0817235947865,
+        4943.7402748197765
+      ],
+      "size": [
+        360,
+        90
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            253
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        4242,
+        "fixed"
+      ],
+      "widgets_values_named": {
+        "noise_seed": 4242,
+        "control_after_generate": "fixed"
+      }
+    },
+    {
+      "id": 144,
+      "type": "easy showAnything",
+      "pos": [
+        -1210.9375740975986,
+        5611.942462239707
+      ],
+      "size": [
+        210,
+        88
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 285
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "5618a748c14858a6e95a583baa28bb7c8da7976a",
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "864"
+      ],
+      "widgets_values_named": {
+        "text": "864"
+      }
+    },
+    {
+      "id": 145,
+      "type": "easy showAnything",
+      "pos": [
+        -1217.7839561016672,
+        5759.240498862646
+      ],
+      "size": [
+        210,
+        88
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 286
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "5618a748c14858a6e95a583baa28bb7c8da7976a",
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "480"
+      ],
+      "widgets_values_named": {
+        "text": "480"
+      }
+    },
+    {
+      "id": 130,
+      "type": "CreateVideo",
+      "pos": [
+        430.4782309135202,
+        4920.739789028286
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 258
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 328
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            260
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24,
+        8,
+        "sRGB"
+      ],
+      "widgets_values_named": {
+        "fps": 24,
+        "bit_depth": 8,
+        "color_space": "sRGB"
+      }
+    },
+    {
+      "id": 122,
+      "type": "VAEDecode",
+      "pos": [
+        437.50546986967254,
+        5104.671720937779
+      ],
+      "size": [
+        230,
+        60
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 280
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 251
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            258
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 121,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        434.56936037283543,
+        5243.160269546081
+      ],
+      "size": [
+        230,
+        60
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 281
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 250
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            328
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "VAEDecodeAudio"
+      }
+    },
+    {
+      "id": 115,
+      "type": "ResolutionSelector",
+      "pos": [
+        -1495.015545094705,
+        5649.858156937573
+      ],
+      "size": [
+        248.47943141670112,
+        126
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "showAdvanced": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            285,
+            380
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            286,
+            381
+          ]
+        }
+      ],
+      "title": "Resolution Selector (Size)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "ResolutionSelector"
+      },
+      "widgets_values": [
+        "16:9 (Widescreen)",
+        0.4,
+        32
+      ],
+      "widgets_values_named": {
+        "aspect_ratio": "16:9 (Widescreen)",
+        "megapixels": 0.4,
+        "multiple": 32
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 92,
+      "type": "SaveVideo",
+      "pos": [
+        730.9725267201007,
+        4921.523401704712
+      ],
+      "size": [
+        706.4361757164115,
+        106
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 260
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/MiniMax_H3",
+        "auto",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "video/MiniMax_H3",
+        "format": "auto",
+        "format.codec": "auto",
+        "codec": "auto"
+      }
+    },
+    {
+      "id": 203,
+      "type": "MiniMaxH3TimelineEncoder",
+      "pos": [
+        -756.1216182775861,
+        5145.933149275982
+      ],
+      "size": [
+        409.6587092821969,
+        178.01402071136908
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 374
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 375
+        },
+        {
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 376
+        },
+        {
+          "name": "plan",
+          "type": "MINIMAX_H3_TIMELINE_PLAN",
+          "link": 371
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 384
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            377
+          ]
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            378
+          ]
+        },
+        {
+          "name": "Merged Video Audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "Merged Standalone Audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "Songssx/ComfyUI-MiniMaxH3-TimelineDirector",
+        "ver": "bad313e7e1a7eb300a23aac9f094da63fb536430",
+        "Node name for S&R": "MiniMaxH3TimelineEncoder"
+      },
+      "widgets_values": [
+        "subject_definitions:\n<Subject 1> is the anthropomorphic pig character from <Picture 1>. He has pale pink skin covered with short fine bristles, a broad round face, a large pink snout, drooping pig ears, expressive brown eyes, sparse light-brown hair, and a slightly stocky humanoid body. He wears a faded grey hoodie beneath a weathered brown jacket, loose dark-grey trousers, worn beige sneakers, and a brown cross-body satchel. Preserve his exact facial identity, animal anatomy, body proportions, clothing layers, colors, footwear, satchel, and stylized cinematic 3D appearance in every shot and from every angle.\n<Subject 2> is the complete runway performance of the original female protagonist in <Video 1>, including her walking cycle, stride length, foot placement, arm swing, posture, head direction, body orientation, timing, screen position, and transitions between camera angles.\n<Video 1> is the source video for the target video edit. Its complete selected 7.08-second timeline, four-shot structure, runway environment, audience, lighting, camera movement, framing, shot-size changes, focus, pacing, reflections, and editing rhythm must remain unchanged.\n\nsummary:\n[video editing + reference generation] The target video is an edited version of the selected 0.00–7.08-second segment of <Video 1>. Replace only the original female protagonist with <Subject 1>, including her entire head, face, hair, neck, torso, arms, hands, legs, feet, clothing, and accessories. Transfer the original runway performance from <Subject 2> to <Subject 1> one-to-one. Preserve every other element of <Video 1> exactly, including all camera movements, cuts, shot sizes, runway geometry, spectators, flashes, stage lights, reflections, and timing.\n\nretention_analysis:\n<Subject 1> (appears throughout [Shot 1] to [Shot 4]): fully_preserved - retain the pig’s recognizable face, snout, ears, bristles, stocky proportions, grey hoodie, weathered brown jacket, dark trousers, worn sneakers, and brown cross-body satchel from <Picture 1>.\n<Subject 2> (appears throughout [Shot 1] to [Shot 4]): attribute_transfer - transfer the source protagonist’s complete walking performance, pose sequence, timing, foot contacts, arm motion, head direction, and screen trajectory to <Subject 1>, while completely removing the original protagonist’s identity, body, hair, dress, tights, boots, and accessories.\n<Video 1> (complete selected segment): partially_preserved - preserve the complete four-shot structure, cuts, camera movement, shot-size transitions, runway, audience, lighting, focus, reflections, and pacing; change only the main protagonist.\n\ndetailed_description:\nThe target is a precise character-replacement edit lasting exactly 7.08 seconds. Preserve <Video 1>’s cinematic fashion-runway style, 16:9 composition, frame rate, color grading, contrast, depth of field, and temporal rhythm. Do not redesign, reinterpret, extend, shorten, or reorder the source footage.\n\n[Shot 1] Reproduce the exact opening full-body frontal runway shot from <Video 1>. Completely replace the original woman with <Subject 1>. The pig walks directly toward the camera along the glossy black catwalk, matching the original protagonist’s exact starting position, walking speed, stride rhythm, footfalls, upright posture, arm swing, head direction, and screen trajectory. Keep the runway’s bright white edge lights, vertical light panels, overhead spotlights, seated audience, camera flashes, floor reflections, and frontal camera movement unchanged. Scale the pig uniformly to occupy the original protagonist’s approximate on-screen height without stretching his stocky proportions. His jacket, hoodie, trousers, ears, short hair, and satchel produce restrained secondary motion corresponding to each step.\n\n[Shot 2] At 00:02.500, preserve the exact cut to the low-angle close-up of the protagonist’s lower body. Show <Subject 1>’s dark-grey trouser legs and worn beige sneakers replacing the original dress hem, tights, and platform boots. His feet reproduce the original crossing runway steps frame by frame, with identical heel-to-toe contacts, stride length, timing, direction, and position on the reflective floor. Retain the ground-level lateral tracking movement, audience placement, flash photography, runway reflections, focus depth, and motion blur exactly. The lower edge of his jacket and satchel may swing naturally into frame but must not obscure the original leg choreography.\n\n[Shot 3] At 00:04.375, preserve the exact cut to the side-profile medium shot. <Subject 1> continues walking in the same direction and at the same speed as the original protagonist. Match the source torso position, shoulder movement, arm swing, gaze direction, and profile trajectory. Clearly preserve his protruding snout, drooping ear, short bristles, grey hood, weathered jacket, and diagonal satchel strap from the side. Retain the camera’s parallel tracking movement, audience background, phone flashes, stage lighting, shallow depth of field, and composition without alteration.\n\n[Shot 4] At 00:06.333, preserve the exact cut to the frontal three-quarter medium shot and the following shot-size change from <Video 1>. <Subject 1> maintains the original walk, posture, facial direction, hand movement, and runway position. Match the source camera’s movement and its transition toward the wider final composition exactly. End at 00:07.080 on the same framing, runway position, lighting state, audience arrangement, and motion phase as the selected source segment.\n\nThroughout all shots, remove every visible fragment of the original woman. Do not retain her face, red-and-black hair, feminine body silhouette, black dress, belt, tights, boots, hands, or shadow. Do not create a hybrid human-pig face or place the pig’s head on the original body. Replace the complete character silhouette, clothing, limbs, footwear, accessories, reflections, and cast shadow. Maintain one stable pig identity with no face drift, costume changes, duplicated ears, extra limbs, extra fingers, deformation, flicker, or scale jumps.\n\noverall_soundscape:\nN/A\n\nnon_diegetic_music:\nN/A",
+        "match"
+      ],
+      "widgets_values_named": {
+        "prompt": "subject_definitions:\n<Subject 1> is the anthropomorphic pig character from <Picture 1>. He has pale pink skin covered with short fine bristles, a broad round face, a large pink snout, drooping pig ears, expressive brown eyes, sparse light-brown hair, and a slightly stocky humanoid body. He wears a faded grey hoodie beneath a weathered brown jacket, loose dark-grey trousers, worn beige sneakers, and a brown cross-body satchel. Preserve his exact facial identity, animal anatomy, body proportions, clothing layers, colors, footwear, satchel, and stylized cinematic 3D appearance in every shot and from every angle.\n<Subject 2> is the complete runway performance of the original female protagonist in <Video 1>, including her walking cycle, stride length, foot placement, arm swing, posture, head direction, body orientation, timing, screen position, and transitions between camera angles.\n<Video 1> is the source video for the target video edit. Its complete selected 7.08-second timeline, four-shot structure, runway environment, audience, lighting, camera movement, framing, shot-size changes, focus, pacing, reflections, and editing rhythm must remain unchanged.\n\nsummary:\n[video editing + reference generation] The target video is an edited version of the selected 0.00–7.08-second segment of <Video 1>. Replace only the original female protagonist with <Subject 1>, including her entire head, face, hair, neck, torso, arms, hands, legs, feet, clothing, and accessories. Transfer the original runway performance from <Subject 2> to <Subject 1> one-to-one. Preserve every other element of <Video 1> exactly, including all camera movements, cuts, shot sizes, runway geometry, spectators, flashes, stage lights, reflections, and timing.\n\nretention_analysis:\n<Subject 1> (appears throughout [Shot 1] to [Shot 4]): fully_preserved - retain the pig’s recognizable face, snout, ears, bristles, stocky proportions, grey hoodie, weathered brown jacket, dark trousers, worn sneakers, and brown cross-body satchel from <Picture 1>.\n<Subject 2> (appears throughout [Shot 1] to [Shot 4]): attribute_transfer - transfer the source protagonist’s complete walking performance, pose sequence, timing, foot contacts, arm motion, head direction, and screen trajectory to <Subject 1>, while completely removing the original protagonist’s identity, body, hair, dress, tights, boots, and accessories.\n<Video 1> (complete selected segment): partially_preserved - preserve the complete four-shot structure, cuts, camera movement, shot-size transitions, runway, audience, lighting, focus, reflections, and pacing; change only the main protagonist.\n\ndetailed_description:\nThe target is a precise character-replacement edit lasting exactly 7.08 seconds. Preserve <Video 1>’s cinematic fashion-runway style, 16:9 composition, frame rate, color grading, contrast, depth of field, and temporal rhythm. Do not redesign, reinterpret, extend, shorten, or reorder the source footage.\n\n[Shot 1] Reproduce the exact opening full-body frontal runway shot from <Video 1>. Completely replace the original woman with <Subject 1>. The pig walks directly toward the camera along the glossy black catwalk, matching the original protagonist’s exact starting position, walking speed, stride rhythm, footfalls, upright posture, arm swing, head direction, and screen trajectory. Keep the runway’s bright white edge lights, vertical light panels, overhead spotlights, seated audience, camera flashes, floor reflections, and frontal camera movement unchanged. Scale the pig uniformly to occupy the original protagonist’s approximate on-screen height without stretching his stocky proportions. His jacket, hoodie, trousers, ears, short hair, and satchel produce restrained secondary motion corresponding to each step.\n\n[Shot 2] At 00:02.500, preserve the exact cut to the low-angle close-up of the protagonist’s lower body. Show <Subject 1>’s dark-grey trouser legs and worn beige sneakers replacing the original dress hem, tights, and platform boots. His feet reproduce the original crossing runway steps frame by frame, with identical heel-to-toe contacts, stride length, timing, direction, and position on the reflective floor. Retain the ground-level lateral tracking movement, audience placement, flash photography, runway reflections, focus depth, and motion blur exactly. The lower edge of his jacket and satchel may swing naturally into frame but must not obscure the original leg choreography.\n\n[Shot 3] At 00:04.375, preserve the exact cut to the side-profile medium shot. <Subject 1> continues walking in the same direction and at the same speed as the original protagonist. Match the source torso position, shoulder movement, arm swing, gaze direction, and profile trajectory. Clearly preserve his protruding snout, drooping ear, short bristles, grey hood, weathered jacket, and diagonal satchel strap from the side. Retain the camera’s parallel tracking movement, audience background, phone flashes, stage lighting, shallow depth of field, and composition without alteration.\n\n[Shot 4] At 00:06.333, preserve the exact cut to the frontal three-quarter medium shot and the following shot-size change from <Video 1>. <Subject 1> maintains the original walk, posture, facial direction, hand movement, and runway position. Match the source camera’s movement and its transition toward the wider final composition exactly. End at 00:07.080 on the same framing, runway position, lighting state, audience arrangement, and motion phase as the selected source segment.\n\nThroughout all shots, remove every visible fragment of the original woman. Do not retain her face, red-and-black hair, feminine body silhouette, black dress, belt, tights, boots, hands, or shadow. Do not create a hybrid human-pig face or place the pig’s head on the original body. Replace the complete character silhouette, clothing, limbs, footwear, accessories, reflections, and cast shadow. Maintain one stable pig identity with no face drift, costume changes, duplicated ears, extra limbs, extra fingers, deformation, flicker, or scale jumps.\n\noverall_soundscape:\nN/A\n\nnon_diegetic_music:\nN/A",
+        "ref_image_size": "match"
+      }
+    },
+    {
+      "id": 127,
+      "type": "UNETLoader",
+      "pos": [
+        -1503.0984969025762,
+        4941.480443405995
+      ],
+      "size": [
+        648.4108048505781,
+        82
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            385,
+            386
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "UNETLoader",
+        "models": [
+          {
+            "name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+            "directory": "diffusion_models"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_fused_refdelta_r1024_turbo8_mystic07_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax_h3_fused_refdelta_r1024_turbo8_mystic07_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 202,
+      "type": "MiniMaxH3OmniPromptBridge",
+      "pos": [
+        295.1442856324147,
+        5624.65101537535
+      ],
+      "size": [
+        411.85972918242066,
+        411.5280694952662
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "media_bundle",
+          "type": "MINIMAX_H3_OMNI_MEDIA_BUNDLE",
+          "link": 370
+        },
+        {
+          "name": "options",
+          "shape": 7,
+          "type": "H3_REWRITER_OPTIONS",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rewritten_prompt",
+          "type": "STRING",
+          "links": [
+            384
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Songssx/ComfyUI-MiniMaxH3-TimelineDirector",
+        "ver": "bad313e7e1a7eb300a23aac9f094da63fb536430",
+        "Node name for S&R": "MiniMaxH3OmniPromptBridge"
+      },
+      "widgets_values": [
+        "REF2AV",
+        "将原视频中的人物替换成参考图中的角色，整个人物都完成替换，但是要保证原视频的镜头运动，景别切换等内容跟原视频保持一致，只更改主角",
+        "on disk: Qwen2.5-Omni-7B-Q8_0.gguf [+mmproj, vision, audio, 9.0 GB]",
+        "bfloat16",
+        true,
+        1593158621,
+        "fixed",
+        false,
+        64,
+        false
+      ],
+      "widgets_values_named": {
+        "task": "REF2AV",
+        "prompt": "将原视频中的人物替换成参考图中的角色，整个人物都完成替换，但是要保证原视频的镜头运动，景别切换等内容跟原视频保持一致，只更改主角",
+        "model": "on disk: Qwen2.5-Omni-7B-Q8_0.gguf [+mmproj, vision, audio, 9.0 GB]",
+        "quantization": "bfloat16",
+        "greedy": true,
+        "seed": 1593158621,
+        "control_after_generate": "fixed",
+        "keep_model_loaded": false,
+        "max_frames": 64,
+        "bypass": false
+      }
+    },
+    {
+      "id": 200,
+      "type": "MiniMaxH3TimelinePlanner",
+      "pos": [
+        -958.9248939922276,
+        5606.935533179811
+      ],
+      "size": [
+        1222.4675515061165,
+        991
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "prompt_index",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 380
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 381
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Material Plan",
+          "type": "MINIMAX_H3_TIMELINE_PLAN",
+          "links": [
+            371
+          ]
+        },
+        {
+          "name": "Omni Media Bundle",
+          "type": "MINIMAX_H3_OMNI_MEDIA_BUNDLE",
+          "links": [
+            370
+          ]
+        },
+        {
+          "name": "Segment Plan",
+          "type": "MINIMAX_H3_FINITE_SEGMENT_PLAN",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "Songssx/ComfyUI-MiniMaxH3-TimelineDirector",
+        "ver": "bad313e7e1a7eb300a23aac9f094da63fb536430",
+        "Node name for S&R": "MiniMaxH3TimelinePlanner"
+      },
+      "widgets_values": [
+        1344,
+        768,
+        7.1,
+        "{\"version\":5,\"fps\":24,\"globalPrompt\":\"\",\"selection\":{\"start\":0,\"duration\":7.078613613584206},\"videoAudioEnabled\":true,\"videoClips\":[],\"images\":[],\"audios\":[],\"segmentConfig\":{\"count\":0,\"activeIndex\":0,\"mode\":\"legacy\",\"segments\":[]}}",
+        ""
+      ],
+      "widgets_values_named": {
+        "width": 1344,
+        "height": 768,
+        "generation_seconds": 7.1,
+        "timeline_data": "{\"version\":5,\"fps\":24,\"globalPrompt\":\"\",\"selection\":{\"start\":0,\"duration\":7.078613613584206},\"videoAudioEnabled\":true,\"videoClips\":[],\"images\":[],\"audios\":[],\"segmentConfig\":{\"count\":0,\"activeIndex\":0,\"mode\":\"legacy\",\"segments\":[]}}",
+        "minimax_h3_timeline": ""
+      }
+    }
+  ],
+  "links": [
+    [
+      250,
+      120,
+      0,
+      121,
+      1,
+      "VAE"
+    ],
+    [
+      251,
+      119,
+      0,
+      122,
+      1,
+      "VAE"
+    ],
+    [
+      253,
+      129,
+      0,
+      125,
+      0,
+      "NOISE"
+    ],
+    [
+      254,
+      126,
+      0,
+      125,
+      1,
+      "GUIDER"
+    ],
+    [
+      256,
+      124,
+      0,
+      125,
+      3,
+      "SIGMAS"
+    ],
+    [
+      258,
+      122,
+      0,
+      130,
+      0,
+      "IMAGE"
+    ],
+    [
+      260,
+      130,
+      0,
+      92,
+      0,
+      "VIDEO"
+    ],
+    [
+      280,
+      125,
+      0,
+      122,
+      0,
+      "LATENT"
+    ],
+    [
+      281,
+      125,
+      0,
+      121,
+      0,
+      "LATENT"
+    ],
+    [
+      285,
+      115,
+      0,
+      144,
+      0,
+      "INT"
+    ],
+    [
+      286,
+      115,
+      1,
+      145,
+      0,
+      "INT"
+    ],
+    [
+      328,
+      121,
+      0,
+      130,
+      1,
+      "AUDIO"
+    ],
+    [
+      341,
+      179,
+      0,
+      125,
+      2,
+      "SAMPLER"
+    ],
+    [
+      370,
+      200,
+      1,
+      202,
+      0,
+      "MINIMAX_H3_OMNI_MEDIA_BUNDLE"
+    ],
+    [
+      371,
+      200,
+      0,
+      203,
+      3,
+      "MINIMAX_H3_TIMELINE_PLAN"
+    ],
+    [
+      374,
+      128,
+      0,
+      203,
+      0,
+      "CLIP"
+    ],
+    [
+      375,
+      119,
+      0,
+      203,
+      1,
+      "VAE"
+    ],
+    [
+      376,
+      120,
+      0,
+      203,
+      2,
+      "VAE"
+    ],
+    [
+      377,
+      203,
+      0,
+      126,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      378,
+      203,
+      1,
+      125,
+      4,
+      "LATENT"
+    ],
+    [
+      380,
+      115,
+      0,
+      200,
+      1,
+      "INT"
+    ],
+    [
+      381,
+      115,
+      1,
+      200,
+      2,
+      "INT"
+    ],
+    [
+      384,
+      202,
+      0,
+      203,
+      4,
+      "STRING"
+    ],
+    [
+      385,
+      127,
+      0,
+      124,
+      0,
+      "MODEL"
+    ],
+    [
+      386,
+      127,
+      0,
+      126,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Models",
+      "bounding": [
+        -1520,
+        4840,
+        700,
+        670
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Sampling",
+      "bounding": [
+        -285.08172359478675,
+        4843.7402748197765,
+        690,
+        670
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Conditioning",
+      "bounding": [
+        -790,
+        4840,
+        480,
+        670
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Decoding and create video",
+      "bounding": [
+        422.9399279317507,
+        4846.991315380424,
+        670,
+        670
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "User Inputs",
+      "bounding": [
+        -1520,
+        5540,
+        2029.0858830491557,
+        894.3470457221983
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5760393442623588,
+      "offset": [
+        2062.8210515927017,
+        -4558.80640420398
+      ]
+    },
+    "frontendVersion": "1.51.9",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "anomalous_hashes": {
+      "119_minimax_h3_video_vae_fp16.safetensors": {
+        "hash": "",
+        "size": 5207808496
+      },
+      "120_minimax_h3_audio_vae_fp32.safetensors": {
+        "hash": "",
+        "size": 605254808
+      },
+      "127_minimax_h3_fused_refdelta_r1024_turbo8_mystic07_int8_convrot.safetensors": {
+        "hash": "",
+        "size": 20980178976
+      }
+    }
+  },
+  "version": 0.4
+}

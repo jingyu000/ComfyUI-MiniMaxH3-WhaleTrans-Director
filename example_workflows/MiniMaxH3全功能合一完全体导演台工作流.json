@@ -1,0 +1,618 @@
+{
+  "id": "9b12006b-e843-4821-a446-95e8f8ccff69",
+  "revision": 0,
+  "last_node_id": 20,
+  "last_link_id": 30,
+  "nodes": [
+    {
+      "id": 6,
+      "type": "KSamplerSelect",
+      "pos": [
+        -259.2543626473244,
+        187.7530185834838
+      ],
+      "size": [
+        369.63595585539855,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0",
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ],
+      "widgets_values_named": {
+        "sampler_name": "euler"
+      }
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        -260.62820126329655,
+        -297.2786834455656
+      ],
+      "size": [
+        440.21875,
+        138
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "minimax_h3\\qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "minimax_h3\\qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+        "type": "minimax",
+        "device": "default"
+      }
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        -257.7672293393831,
+        -107.96779550194881
+      ],
+      "size": [
+        368.046875,
+        86
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_fp16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+      }
+    },
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "pos": [
+        -258.7623091216408,
+        41.64973692894583
+      ],
+      "size": [
+        373.609375,
+        86
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+      }
+    },
+    {
+      "id": 5,
+      "type": "BasicScheduler",
+      "pos": [
+        645.5783460422274,
+        -371.64976891035576
+      ],
+      "size": [
+        270,
+        142
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 28
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0",
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        8,
+        1
+      ],
+      "widgets_values_named": {
+        "scheduler": "simple",
+        "steps": 8,
+        "denoise": 1
+      }
+    },
+    {
+      "id": 9,
+      "type": "CreateVideo",
+      "pos": [
+        1351.6851444894844,
+        -486.35231924336773
+      ],
+      "size": [
+        270,
+        162
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 20
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0",
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24,
+        8,
+        "sRGB"
+      ],
+      "widgets_values_named": {
+        "fps": 24,
+        "bit_depth": 8,
+        "color_space": "sRGB"
+      }
+    },
+    {
+      "id": 8,
+      "type": "MiniMaxH3FiniteSegmentSampler",
+      "pos": [
+        977.6097759503031,
+        -547.0698802673928
+      ],
+      "size": [
+        335.234375,
+        462
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 29
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 14
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 15
+        },
+        {
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 16
+        },
+        {
+          "name": "finite_plan",
+          "type": "MINIMAX_H3_FINITE_SEGMENT_PLAN",
+          "link": 30
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 18
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Last Sampled Latent",
+          "type": "LATENT",
+          "links": null
+        },
+        {
+          "name": "Merged Frames",
+          "type": "IMAGE",
+          "links": [
+            20
+          ]
+        },
+        {
+          "name": "Merged Audio",
+          "type": "AUDIO",
+          "links": [
+            21
+          ]
+        },
+        {
+          "name": "Sampling Status",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "Songssx/ComfyUI-MiniMaxH3-TimelineDirector",
+        "ver": "bad313e7e1a7eb300a23aac9f094da63fb536430",
+        "Node name for S&R": "MiniMaxH3FiniteSegmentSampler"
+      },
+      "widgets_values": [
+        42,
+        "fixed",
+        true,
+        "match"
+      ],
+      "widgets_values_named": {
+        "seed": 42,
+        "control_after_generate": "fixed",
+        "continue_audio_latent": true,
+        "ref_image_size": "match"
+      }
+    },
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        -258.90439391857865,
+        -441.66511469967674
+      ],
+      "size": [
+        536.4867617027867,
+        82
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            28,
+            29
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "minimax_h3_fused_refdelta_r1024_turbo8_mystic07_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax_h3_fused_refdelta_r1024_turbo8_mystic07_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 10,
+      "type": "SaveVideo",
+      "pos": [
+        1755.134526156044,
+        -605.713901946166
+      ],
+      "size": [
+        1132.1752652558707,
+        130
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0",
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "H3_plugin_matrix/CASE_ID",
+        "mp4",
+        "auto",
+        "h264",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "H3_plugin_matrix/CASE_ID",
+        "format": "mp4",
+        "format.codec": "auto",
+        "codec": "h264",
+        "codec.encoding": "auto"
+      }
+    },
+    {
+      "id": 20,
+      "type": "MiniMaxH3TimelinePlanner",
+      "pos": [
+        174.33276513429888,
+        66.50902707042513
+      ],
+      "size": [
+        1279.6509140699095,
+        991
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "prompt_index",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Material Plan",
+          "type": "MINIMAX_H3_TIMELINE_PLAN",
+          "links": null
+        },
+        {
+          "name": "Omni Media Bundle",
+          "type": "MINIMAX_H3_OMNI_MEDIA_BUNDLE",
+          "links": null
+        },
+        {
+          "name": "Segment Plan",
+          "type": "MINIMAX_H3_FINITE_SEGMENT_PLAN",
+          "links": [
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Songssx/ComfyUI-MiniMaxH3-TimelineDirector",
+        "ver": "bad313e7e1a7eb300a23aac9f094da63fb536430",
+        "Node name for S&R": "MiniMaxH3TimelinePlanner"
+      },
+      "widgets_values": [
+        1344,
+        768,
+        5,
+        "{\"version\":5,\"fps\":24,\"globalPrompt\":\"\",\"selection\":{\"start\":0,\"duration\":5},\"videoAudioEnabled\":true,\"videoClips\":[],\"images\":[],\"audios\":[{\"id\":\"mtvcfi39-umtp5d\",\"file\":\"minimax_h3_timeline_director/1789033627927_5x9fi_0034.wav\",\"name\":\"0034.wav\",\"duration\":15.30195,\"trimStart\":0,\"audioMode\":\"reference\"}],\"segmentConfig\":{\"count\":0,\"activeIndex\":0,\"mode\":\"legacy\",\"segments\":[]}}",
+        ""
+      ],
+      "widgets_values_named": {
+        "width": 1344,
+        "height": 768,
+        "generation_seconds": 5,
+        "timeline_data": "{\"version\":5,\"fps\":24,\"globalPrompt\":\"\",\"selection\":{\"start\":0,\"duration\":5},\"videoAudioEnabled\":true,\"videoClips\":[],\"images\":[],\"audios\":[{\"id\":\"mtvcfi39-umtp5d\",\"file\":\"minimax_h3_timeline_director/1789033627927_5x9fi_0034.wav\",\"name\":\"0034.wav\",\"duration\":15.30195,\"trimStart\":0,\"audioMode\":\"reference\"}],\"segmentConfig\":{\"count\":0,\"activeIndex\":0,\"mode\":\"legacy\",\"segments\":[]}}",
+        "minimax_h3_timeline": ""
+      }
+    }
+  ],
+  "links": [
+    [
+      14,
+      2,
+      0,
+      8,
+      1,
+      "CLIP"
+    ],
+    [
+      15,
+      3,
+      0,
+      8,
+      2,
+      "VAE"
+    ],
+    [
+      16,
+      4,
+      0,
+      8,
+      3,
+      "VAE"
+    ],
+    [
+      18,
+      6,
+      0,
+      8,
+      5,
+      "SAMPLER"
+    ],
+    [
+      19,
+      5,
+      0,
+      8,
+      6,
+      "SIGMAS"
+    ],
+    [
+      20,
+      8,
+      1,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      8,
+      2,
+      9,
+      1,
+      "AUDIO"
+    ],
+    [
+      22,
+      9,
+      0,
+      10,
+      0,
+      "VIDEO"
+    ],
+    [
+      28,
+      1,
+      0,
+      5,
+      0,
+      "MODEL"
+    ],
+    [
+      29,
+      1,
+      0,
+      8,
+      0,
+      "MODEL"
+    ],
+    [
+      30,
+      20,
+      2,
+      8,
+      4,
+      "MINIMAX_H3_FINITE_SEGMENT_PLAN"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6303940863128545,
+      "offset": [
+        454.53134547099967,
+        844.3197051746739
+      ]
+    },
+    "anomalous_hashes": {
+      "3_minimax_h3_video_vae_fp16.safetensors": {
+        "hash": "",
+        "size": 5207808496
+      },
+      "4_minimax_h3_audio_vae_fp32.safetensors": {
+        "hash": "",
+        "size": 605254808
+      },
+      "1_minimax_h3_fused_refdelta_r1024_turbo8_mystic07_int8_convrot.safetensors": {
+        "hash": "",
+        "size": 20980178976
+      }
+    },
+    "frontendVersion": "1.51.10",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
