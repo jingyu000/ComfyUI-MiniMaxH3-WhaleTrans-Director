@@ -1,2 +1,1 @@
-# ComfyUI-MiniMax-H3-expand-3-Loop-LoopVariable-AccumulateSaveVideo-HIGH-3D-latent-key-1-UI-
-ComfyUI MiniMax H3 长视频循环导演台增强版 - 3 节点循环系统 + 官方 expand 机制 + HIGH 二次采样引导 + 运行隔离，轻松实现多段连贯长视频生成
+ComfyUI MiniMax H3 长视频循环导演台增强版。基于官方 expand 递归展开机制实现 3 节点循环系统（Loop/LoopVariable/AccumulateSaveVideo），无需侵入核心文件。内置 HIGH 二次采样引导节点解决 3D 潜空间放大后条件尺寸冲突，全局 latent 缓存 + key 引用优化循环显存爆炸，运行隔离确保中断后从第 1 段重新开始。支持多段连贯长视频生成、二段式采样、导演台 UI 增强。
