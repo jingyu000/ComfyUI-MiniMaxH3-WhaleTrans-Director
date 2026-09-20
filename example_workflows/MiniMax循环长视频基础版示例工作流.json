@@ -1,0 +1,5612 @@
+{
+  "id": "b641c11e-2721-4c2a-9d83-fb32b522431c",
+  "revision": 0,
+  "last_node_id": 151,
+  "last_link_id": 235,
+  "nodes": [
+    {
+      "id": 12,
+      "type": "BasicGuider",
+      "pos": [
+        4000,
+        -2290
+      ],
+      "size": [
+        340,
+        50
+      ],
+      "flags": {},
+      "order": 56,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 89
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      }
+    },
+    {
+      "id": 13,
+      "type": "KSamplerSelect",
+      "pos": [
+        4000,
+        -2190
+      ],
+      "size": [
+        330,
+        60
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "euler"
+      ],
+      "widgets_values_named": {
+        "sampler_name": "euler"
+      }
+    },
+    {
+      "id": 58,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        2600,
+        -1590
+      ],
+      "size": [
+        510,
+        90
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "模型",
+          "name": "model",
+          "type": "MODEL",
+          "link": 81
+        },
+        {
+          "label": "lora_name",
+          "name": "lora_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_name"
+          },
+          "link": null
+        },
+        {
+          "label": "strength_model",
+          "name": "strength_model",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "模型",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            82
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly",
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Minimax加速lora\\minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors",
+        1
+      ],
+      "widgets_values_named": {
+        "lora_name": "Minimax加速lora\\minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors",
+        "strength_model": 1
+      }
+    },
+    {
+      "id": 59,
+      "type": "MiniMaxH3SigmaShift",
+      "pos": [
+        2600,
+        -1440
+      ],
+      "size": [
+        510,
+        90
+      ],
+      "flags": {},
+      "order": 50,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 82
+        },
+        {
+          "label": "shift_video",
+          "name": "shift_video",
+          "type": "FLOAT",
+          "widget": {
+            "name": "shift_video"
+          },
+          "link": null
+        },
+        {
+          "label": "shift_audio",
+          "name": "shift_audio",
+          "type": "FLOAT",
+          "widget": {
+            "name": "shift_audio"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            84
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3SigmaShift",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0"
+      },
+      "widgets_values": [
+        12,
+        3
+      ],
+      "widgets_values_named": {
+        "shift_video": 12,
+        "shift_audio": 3
+      }
+    },
+    {
+      "id": 66,
+      "type": "SetNode",
+      "pos": [
+        3220,
+        -1510
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "输入",
+          "name": "VAE",
+          "type": "VAE",
+          "link": 86
+        }
+      ],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "VAE",
+          "type": "VAE"
+        }
+      ],
+      "title": "Set_vae_audio",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "vae_audio",
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "vae_audio"
+      ],
+      "widgets_values_named": {
+        "Constant": "vae_audio"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 67,
+      "type": "SetNode",
+      "pos": [
+        3220,
+        -1380
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "输入",
+          "name": "CLIP",
+          "type": "CLIP",
+          "link": 87
+        }
+      ],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "CLIP",
+          "type": "CLIP"
+        }
+      ],
+      "title": "Set_clip",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "clip",
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "clip"
+      ],
+      "widgets_values_named": {
+        "Constant": "clip"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 71,
+      "type": "GetNode",
+      "pos": [
+        3690,
+        -2340
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 1,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            93,
+            94
+          ]
+        }
+      ],
+      "title": "Get_vae_audio",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "vae_audio"
+      ],
+      "widgets_values_named": {
+        "Constant": "vae_audio"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 70,
+      "type": "GetNode",
+      "pos": [
+        3680,
+        -2380
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 2,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            91,
+            92
+          ]
+        }
+      ],
+      "title": "Get_vae_video",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "vae_video"
+      ],
+      "widgets_values_named": {
+        "Constant": "vae_video"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 101,
+      "type": "SetNode",
+      "pos": [
+        2980,
+        -1060
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "输入",
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "link": 171
+        }
+      ],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": null
+        }
+      ],
+      "title": "Set_first",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "first",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "first"
+      ],
+      "widgets_values_named": {
+        "Constant": "first"
+      }
+    },
+    {
+      "id": 106,
+      "type": "GetNode",
+      "pos": [
+        3640,
+        -2080
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 3,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            150
+          ]
+        }
+      ],
+      "title": "Get_seed",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "seed"
+      ],
+      "widgets_values_named": {
+        "Constant": "seed"
+      },
+      "color": "#1b4669",
+      "bgcolor": "#29699c"
+    },
+    {
+      "id": 9,
+      "type": "BasicScheduler",
+      "pos": [
+        4000,
+        -2460
+      ],
+      "size": [
+        330,
+        110
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 88
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "simple",
+        8,
+        1
+      ],
+      "widgets_values_named": {
+        "scheduler": "simple",
+        "steps": 8,
+        "denoise": 1
+      }
+    },
+    {
+      "id": 103,
+      "type": "GetNode",
+      "pos": [
+        3670,
+        -2190
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 4,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            147
+          ]
+        }
+      ],
+      "title": "Get_first",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "first"
+      ],
+      "widgets_values_named": {
+        "Constant": "first"
+      }
+    },
+    {
+      "id": 69,
+      "type": "GetNode",
+      "pos": [
+        3700,
+        -2410
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 5,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            90
+          ]
+        }
+      ],
+      "title": "Get_clip",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "clip"
+      ],
+      "widgets_values_named": {
+        "Constant": "clip"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 68,
+      "type": "GetNode",
+      "pos": [
+        3700,
+        -2460
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 6,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            88,
+            89
+          ]
+        }
+      ],
+      "title": "Get_model_1",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "model_1"
+      ],
+      "widgets_values_named": {
+        "Constant": "model_1"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 100,
+      "type": "GetNode",
+      "pos": [
+        3700,
+        -2390
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 7,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            142,
+            143,
+            166
+          ]
+        }
+      ],
+      "title": "Get_iteration",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "iteration"
+      ],
+      "widgets_values_named": {
+        "Constant": "iteration"
+      },
+      "color": "#1b4669",
+      "bgcolor": "#29699c"
+    },
+    {
+      "id": 6,
+      "type": "MiniMaxH3TimelineEncoder",
+      "pos": [
+        3580,
+        -2490
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 48,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 90
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 91
+        },
+        {
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 93
+        },
+        {
+          "name": "plan",
+          "type": "MINIMAX_H3_TIMELINE_PLAN",
+          "link": 5
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 158
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            10
+          ]
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            11
+          ]
+        },
+        {
+          "name": "Merged Video Audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "Merged Standalone Audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3TimelineEncoder",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "prompt": true
+          },
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        "match"
+      ],
+      "widgets_values_named": {
+        "prompt": "",
+        "ref_image_size": "match"
+      }
+    },
+    {
+      "id": 102,
+      "type": "SetNode",
+      "pos": [
+        2980,
+        -1020
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "输入",
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "link": 172
+        }
+      ],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": null
+        }
+      ],
+      "title": "Set_last",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "last",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "last"
+      ],
+      "widgets_values_named": {
+        "Constant": "last"
+      }
+    },
+    {
+      "id": 74,
+      "type": "SetNode",
+      "pos": [
+        2970,
+        -1120
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "输入",
+          "name": "INT",
+          "type": "INT",
+          "link": 170
+        }
+      ],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "INT",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "title": "Set_iteration",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "iteration",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "iteration"
+      ],
+      "widgets_values_named": {
+        "Constant": "iteration"
+      },
+      "color": "#1b4669",
+      "bgcolor": "#29699c"
+    },
+    {
+      "id": 63,
+      "type": "SetNode",
+      "pos": [
+        2720,
+        -1260
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 58,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "输入",
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 83
+        }
+      ],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "title": "Set_model_1",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "model_1",
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "model_1"
+      ],
+      "widgets_values_named": {
+        "Constant": "model_1"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 65,
+      "type": "SetNode",
+      "pos": [
+        3220,
+        -1650
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "输入",
+          "name": "VAE",
+          "type": "VAE",
+          "link": 85
+        }
+      ],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "VAE",
+          "type": "VAE"
+        }
+      ],
+      "title": "Set_vae_video",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "vae_video",
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "vae_video"
+      ],
+      "widgets_values_named": {
+        "Constant": "vae_video"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 105,
+      "type": "SetNode",
+      "pos": [
+        3190,
+        -1060
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "输入",
+          "name": "INT",
+          "type": "INT",
+          "link": 149
+        }
+      ],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "INT",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "title": "Set_seed",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "seed",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "seed"
+      ],
+      "widgets_values_named": {
+        "Constant": "seed"
+      },
+      "color": "#1b4669",
+      "bgcolor": "#29699c"
+    },
+    {
+      "id": 60,
+      "type": "VAELoader",
+      "pos": [
+        3130,
+        -1540
+      ],
+      "size": [
+        280,
+        60
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            86
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        },
+        "models": [
+          {
+            "directory_invalid": true,
+            "name": "minimax_h3_audio_vae_fp32.safetensors",
+            "directory": "vae",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax\\minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax\\minimax_h3_audio_vae_fp32.safetensors"
+      }
+    },
+    {
+      "id": 61,
+      "type": "VAELoader",
+      "pos": [
+        3130,
+        -1660
+      ],
+      "size": [
+        270,
+        70
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            85
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        },
+        "models": [
+          {
+            "directory_invalid": true,
+            "name": "minimax_h3_video_vae_fp16.safetensors",
+            "directory": "vae",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax\\minimax_h3_video_vae_fp16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax\\minimax_h3_video_vae_fp16.safetensors"
+      }
+    },
+    {
+      "id": 10,
+      "type": "MiniMaxH3LoopLatentGuide",
+      "pos": [
+        3570,
+        -2210
+      ],
+      "size": [
+        410,
+        170
+      ],
+      "flags": {},
+      "order": 52,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 10
+        },
+        {
+          "name": "target_latent",
+          "type": "LATENT",
+          "link": 11
+        },
+        {
+          "name": "is_first",
+          "type": "BOOLEAN",
+          "link": 147
+        },
+        {
+          "name": "iteration",
+          "type": "INT",
+          "link": 142
+        },
+        {
+          "name": "previous_latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": 167
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            19
+          ]
+        },
+        {
+          "name": "目标 latent",
+          "type": "LATENT",
+          "links": [
+            25
+          ]
+        },
+        {
+          "name": "实际重叠帧",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "循环状态",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3LoopLatentGuide",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        48,
+        true
+      ],
+      "widgets_values_named": {
+        "overlap_frames": 48,
+        "continue_audio_latent": true
+      }
+    },
+    {
+      "id": 21,
+      "type": "MiniMaxH3LoopSegmentFinalize",
+      "pos": [
+        3580,
+        -1980
+      ],
+      "size": [
+        400,
+        140
+      ],
+      "flags": {},
+      "order": 64,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "sampled_latent",
+          "type": "LATENT",
+          "link": 31
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 32
+        },
+        {
+          "name": "iteration",
+          "type": "INT",
+          "link": 143
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "反馈 latent",
+          "type": "LATENT",
+          "links": [
+            203
+          ]
+        },
+        {
+          "name": "去重画面",
+          "type": "IMAGE",
+          "links": [
+            35
+          ]
+        },
+        {
+          "name": "去重音频",
+          "type": "AUDIO",
+          "links": [
+            36
+          ]
+        },
+        {
+          "name": "保留帧数",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "去重状态",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3LoopSegmentFinalize",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        48
+      ],
+      "widgets_values_named": {
+        "overlap_frames": 48
+      }
+    },
+    {
+      "id": 116,
+      "type": "MarkdownNote",
+      "pos": [
+        4010,
+        -2090
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 10,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [],
+      "title": "分辨率示例",
+      "properties": {
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "| megapixels | Aspect | Output (multiple=32) |\n|---|---|---|\n| 0.2 | 16:9 | 608 x 352 |\n| 0.3 | 16:9 | 736 x 416 |\n| 0.4 | 16:9 | 864 x 480 |\n| 0.5 | 16:9 | 960 x 544 |\n| 0.6 | 16:9 | 1056 x 608 |\n| 0.7 | 16:9 | 1152 x 640 |\n| 0.8 | 16:9 | 1216 x 672 |\n| 0.9 | 16:9 | 1280 x 736 |\n| 0.98 | 16:9 | 1344 x 768 |\n| 1.0 | 16:9 | 1376 x 768 |\n| 1.2 | 16:9 | 1504 x 832 |\n| 1.5 | 16:9 | 1664 x 928 |\n| 1.8 | 16:9 | 1824 x 1024 |\n| 2.0 | 16:9 | 1920 x 1088 |\n"
+      ],
+      "widgets_values_named": {
+        "text": "| megapixels | Aspect | Output (multiple=32) |\n|---|---|---|\n| 0.2 | 16:9 | 608 x 352 |\n| 0.3 | 16:9 | 736 x 416 |\n| 0.4 | 16:9 | 864 x 480 |\n| 0.5 | 16:9 | 960 x 544 |\n| 0.6 | 16:9 | 1056 x 608 |\n| 0.7 | 16:9 | 1152 x 640 |\n| 0.8 | 16:9 | 1216 x 672 |\n| 0.9 | 16:9 | 1280 x 736 |\n| 0.98 | 16:9 | 1344 x 768 |\n| 1.0 | 16:9 | 1376 x 768 |\n| 1.2 | 16:9 | 1504 x 832 |\n| 1.5 | 16:9 | 1664 x 928 |\n| 1.8 | 16:9 | 1824 x 1024 |\n| 2.0 | 16:9 | 1920 x 1088 |\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 117,
+      "type": "MiniMaxH3LoopPromptSelector",
+      "pos": [
+        2610,
+        -2630
+      ],
+      "size": [
+        830,
+        800
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "iteration",
+          "type": "INT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "本段提示词",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "提示词序号",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "提示词状态",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3LoopPromptSelector",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "subject_definitions:\n<Subject 1> is Lin Xia, whose appearance is defined exclusively by <Picture 1>: a young Chinese woman with long dark hair, soft delicate facial features, pink ribbon hair clips, and a light cream floral spaghetti-strap dress. Her acting is natural and restrained, with subtle changes in eye focus, brows, lips, and posture rather than exaggerated expressions.\n<Subject 2> is Zhuzi, whose appearance is defined exclusively by <Picture 2>: an anthropomorphic pale-pink pig with a rounded snout, expressive slightly drooping eyes, a gray hoodie beneath a worn brown jacket, loose dark pants, dirty sneakers, and a brown crossbody bag. His personality is practical, deadpan, analytical, and naturally comedic.\n<Subject 3> is the little witch, whose appearance is defined exclusively by <Picture 3>: a tiny chibi-style witch girl with long black curls, a black-and-purple layered dress, a wide black witch hat decorated with purple roses, and a staff topped with a glowing purple orb. She is confident and slightly proud when discussing magic, but sincerely unfamiliar with modern scientific concepts.\n<Audio 1> is the voice-timbre reference exclusively for <Subject 1> Lin Xia (S1). <Audio 1> must never be used for <Subject 2> or <Subject 3>.\n<Audio 2> is the voice-timbre reference exclusively for <Subject 2> Zhuzi (S2). <Audio 2> must never be used for <Subject 1> or <Subject 3>.\n<Audio 3> is the voice-timbre reference exclusively for <Subject 3> the little witch (S3). <Audio 3> must never be used for <Subject 1> or <Subject 2>.\n\nsummary:\n[reference generation + audio reference] The target video begins a continuous fantasy-comedy conversation inside Lin Xia’s warm modern apartment. <Subject 1>, <Subject 2>, and <Subject 3> study how to send the little witch back to her original world. The little witch explains the three requirements of space magic, Lin Xia asks whether she remembers the coordinates, and the little witch confidently produces an old spellbook. The final 2.000 seconds, from 00:13.000 to 00:15.000, are deliberately isolated as a single continuity-guide shot showing the absurd written coordinates and Zhuzi’s silent reaction; this exact visual and audio state must become the opening [Shot 1] of the next segment.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1], [Shot 2], [Shot 3]): fully_preserved - preserve Lin Xia’s exact facial identity, hairstyle, pink ribbons, cream floral dress, realistic human proportions, and natural restrained acting from <Picture 1>.\n<Subject 2> (appears in [Shot 1], [Shot 2], [Shot 3]): fully_preserved - preserve Zhuzi’s exact pig facial structure, clothing, bag, proportions, and deadpan personality from <Picture 2>.\n<Subject 3> (appears in [Shot 1], [Shot 2], [Shot 3]): fully_preserved - preserve the little witch’s exact chibi proportions, hairstyle, hat, purple-black dress, staff, and magical visual identity from <Picture 3>.\n<Audio 1>: reference - only <Subject 1> (S1) follows <Audio 1>'s female Mandarin voice timbre and natural delivery.\n<Audio 2>: reference - only <Subject 2> (S2) follows <Audio 2>'s Zhuzi voice timbre and delivery.\n<Audio 3>: reference - only <Subject 3> (S3) follows <Audio 3>'s little-witch voice timbre and delivery.\n\ndetailed_description:\nThe target video has a polished cinematic fantasy-comedy style inside a believable modern Chinese apartment at night. Warm practical lamps create soft amber highlights while the little witch’s purple magic provides a restrained contrasting glow. The coffee table contains notebooks, loose paper, pens, and ordinary household items. All three characters physically occupy the same coherent space. Their eye lines, reactions, pauses, and body language should resemble a naturally acted dialogue scene rather than disconnected character demonstrations.\n\n[Shot 1] A medium-wide three-character composition establishes the living room. <Subject 1> Lin Xia (S1) sits beside the coffee table, leaning slightly forward with focused curiosity. <Subject 2> Zhuzi (S2) sits opposite her with his shoulders slightly hunched and one hand resting near his knee, listening carefully. <Subject 3> the little witch (S3), much smaller than the other two characters, stands on top of the coffee table with her staff upright beside her. She adopts the serious posture of someone explaining an important technical problem and counts the requirements on her fingers while saying, <d>[Chinese] 要用空间魔法回去，需要三个条件。足够强的能量、原世界的坐标，还有能够打开空间裂缝的法阵。</d> The glowing purple orb on her staff gives a soft pulse as she mentions the spatial rift. Lin Xia’s brows draw together slightly as she mentally organizes the information. Zhuzi remains quiet and thoughtful, occasionally glancing toward the notebook as though treating the magical problem like an engineering problem.\n\n[Shot 2] At 00:07.000, the camera cuts to a medium close composition favoring Lin Xia and the little witch while Zhuzi remains naturally visible deeper in the frame. Lin Xia looks up from the notes and asks with cautious hope, <d>[Chinese] 坐标你记得吗？</d> Her expression suggests that she expects this part to be straightforward. The little witch immediately straightens, lifts her chin, and gives a firm confident nod. She replies without hesitation, <d>[Chinese] 当然。</d> She sets her staff against the edge of the table, bends down, and drags a thick old magic book toward herself. Because the book is large relative to her body, the movement has a slight physical struggle but remains believable rather than slapstick. She rapidly turns several heavy pages until she reaches the final page. Lin Xia leans closer with renewed expectation. Zhuzi also shifts forward, curious about what a magical-world coordinate system will look like.\n\n[Shot 3] At 00:13.000, the camera makes a real cut to an isolated close continuity-guide shot that lasts exactly until 00:15.000. The open spellbook dominates the lower center of frame while the three characters are arranged around it. The final page clearly displays the handwritten Chinese text: “银月森林往东二百步。” <Subject 3> proudly points to the sentence with the end of her tiny finger, completely convinced that the coordinates are precise. <Subject 1> freezes for a moment and her previously hopeful expression slowly changes into visible confusion. <Subject 2> leans closer, silently reads the sentence, then slowly raises his eyes from the page with a blank, speechless, deeply unconvinced expression. Do not begin his next dialogue yet. Hold this exact spellbook position, character placement, facial state, camera angle, lighting, and Zhuzi’s silent reaction through the end of the segment so this entire 2.000-second shot can be carried unchanged into the next segment.\n\noverall_soundscape:\nWarm apartment room tone, faint air-conditioner noise, subtle clothing movement, and quiet table contact remain continuous. The magic staff has a very soft crystalline shimmer. During [Shot 3], page rustling stops and the room becomes briefly quieter, allowing Zhuzi’s silent reaction to create the comedic beat. No new dialogue begins during the final continuity-guide shot.\n\nnon_diegetic_music:\nSoft whimsical fantasy-comedy music with pizzicato strings, light piano, and delicate woodwinds. The music stays understated beneath the explanation, gains a faint magical accent during the coordinate discussion, then thins dramatically during 00:13.000-00:15.000 so the strange coordinate reveal and silent reaction land naturally.\n\n--- SEGMENT ---\n\nsubject_definitions:\n<Subject 1> is Lin Xia, whose appearance is defined exclusively by <Picture 1>: a young Chinese woman with long dark hair, soft delicate facial features, pink ribbon hair clips, and a light cream floral spaghetti-strap dress. Preserve the exact identity, clothing, hairstyle, and natural acting established previously.\n<Subject 2> is Zhuzi, whose appearance is defined exclusively by <Picture 2>: an anthropomorphic pale-pink pig with a rounded snout, expressive slightly drooping eyes, a gray hoodie beneath a worn brown jacket, loose dark pants, dirty sneakers, and a brown crossbody bag. Preserve his exact appearance and restrained deadpan comedic personality.\n<Subject 3> is the little witch, whose appearance is defined exclusively by <Picture 3>: a tiny chibi-style witch girl with long black curls, a black-and-purple layered dress, a wide black witch hat decorated with purple roses, and a staff topped with a glowing purple orb.\n<Audio 1> is the voice-timbre reference exclusively for <Subject 1> Lin Xia (S1). <Audio 1> must never be used for <Subject 2> or <Subject 3>.\n<Audio 2> is the voice-timbre reference exclusively for <Subject 2> Zhuzi (S2). <Audio 2> must never be used for <Subject 1> or <Subject 3>.\n<Audio 3> is the voice-timbre reference exclusively for <Subject 3> the little witch (S3). <Audio 3> must never be used for <Subject 1> or <Subject 2>.\n\nsummary:\n[video continuation + reference generation + audio reference] The first 2.000 seconds exactly continue the isolated final shot from the previous segment: the spellbook remains open on the absurd coordinates while Zhuzi silently stares at them. After the carried overlap ends, the scene cuts into Zhuzi’s latitude-and-longitude joke, followed by the little witch revealing star sand from her home world and explaining that the true difficulty is obtaining a complete magic stone. The final 2.000 seconds isolate Zhuzi silently noticing Lin Xia’s electrical distribution box; this exact state becomes the opening [Shot 1] of segment 3.\n\nretention_analysis:\n<Subject 1> (appears throughout the segment): fully_preserved - Lin Xia retains her exact appearance from <Picture 1> and naturally progresses from confusion and restrained amusement to relief and then renewed concern.\n<Subject 2> (appears throughout the segment): fully_preserved - Zhuzi retains his exact appearance from <Picture 2>, with dry humor gradually giving way to practical analytical concentration.\n<Subject 3> (appears throughout the segment): fully_preserved - the little witch retains her exact appearance from <Picture 3>, moving from confident pride to genuine confusion, then renewed hope and seriousness.\n<Audio 1>: reference - only <Subject 1> (S1) follows <Audio 1>.\n<Audio 2>: reference - only <Subject 2> (S2) follows <Audio 2>.\n<Audio 3>: reference - only <Subject 3> (S3) follows <Audio 3>.\n\ndetailed_description:\nContinue the exact apartment environment, lighting direction, prop positions, character appearance, color palette, and physical scale established in the preceding segment. The first 48 frames, exactly 2.000 seconds at 24 fps, are reserved for the carried Latent Guide and must reproduce the preceding final shot rather than introducing new visual information.\n\n[Shot 1] During 00:00.000-00:02.000, exactly continue the preceding segment’s final continuity-guide shot. The same open spellbook fills the lower center of frame with the clearly visible handwritten Chinese sentence “银月森林往东二百步。” <Subject 3> remains beside the page with the same proud, completely confident expression and pointing gesture. <Subject 1> remains leaned toward the book with the same confused facial expression. <Subject 2> remains leaned forward after reading the line, his eyes lifted from the page with the same blank, speechless and unconvinced expression. Preserve the same camera position, focal length, character placement, book orientation, lighting, shadows, facial state, room ambience, musical phase, and silence. No new dialogue occurs inside these first 2.000 seconds.\n\n[Shot 2] At 00:02.000, the camera makes a real cut to a medium close three-character conversational angle. Zhuzi’s deadpan reaction finally resolves into speech. He looks toward the little witch and asks with completely serious delivery, <d>[Chinese] 你们魔法世界没有经纬度？</d> The little witch’s proud smile immediately fades. She blinks, tilts her head with sincere confusion, and asks, <d>[Chinese] 什么度？</d> Zhuzi pauses for a fraction of a second, looks away with tired acceptance, and replies, <d>[Chinese] 当我没问。</d> Lin Xia presses her lips together and briefly suppresses a smile, but her expression returns to focused concern because they still have not solved the problem.\n\n[Shot 3] At 00:05.500, the little witch suddenly remembers something. Her eyes brighten and her posture lifts. She says, <d>[Chinese] 对了，我还有这个。</d> She reaches into a small inner pocket of her robe and carefully removes a tiny transparent vial holding luminous silver-purple star sand. The camera gently moves closer as the grains sparkle like miniature stars, reflecting faint silver light onto her fingers and cheeks. She proudly explains, <d>[Chinese] 这是星砂，可以作定位媒介。</d> Lin Xia’s eyebrows rise and her shoulders visibly relax; for the first time she sees a practical way forward. Zhuzi also becomes more serious, leaning closer to study the vial rather than joking.\n\n[Shot 4] At 00:08.000, the camera returns to an intimate medium three-shot. The little witch carefully places the star-sand vial beside the magic book. Her expression becomes more solemn and her voice loses some of its earlier confidence. She says, <d>[Chinese] 但麻烦是我需要一块魔力石。</d> Lin Xia looks around the completely ordinary modern apartment, gives a helpless little frown, and replies, <d>[Chinese] 可这个世界……应该没有魔力石</d> The little witch gives a small reluctant nod. Zhuzi does not immediately respond. While Lin Xia and the little witch are still focused on the table, his eyes begin wandering across the room as he thinks.\n\n[Shot 5] At 00:13.000, make a real cut to a separate 2.000-second continuity-guide shot. Frame Zhuzi in a medium profile with part of the apartment wall visible beyond him. His gaze locks onto a wall-mounted household electrical distribution box. His ears lift slightly, his eyes narrow in concentration, and the blank concern on his face gradually transforms into the earliest hint of an idea. In the background, Lin Xia and the little witch remain near the table but are no longer speaking. Do not have Zhuzi approach the box and do not let Lin Xia ask what he is doing yet. Hold Zhuzi’s exact head angle, gaze direction, thoughtful expression, body posture, the distribution box position, camera composition, apartment lighting, room ambience, and musical phase through 00:15.000. This complete 2.000-second shot must become [Shot 1] of the next segment.\n\noverall_soundscape:\nDuring 00:00.000-00:02.000, preserve the preceding silence, apartment room tone, and musical phase exactly. After 00:02.000, natural speech, subtle breathing, light paper movement, and quiet clothing sounds return. The star sand produces a delicate crystalline shimmer from 00:06.500 onward, then fades. From 00:13.000-00:15.000, dialogue stops; the ordinary apartment ambience continues and a very faint electrical hum may become perceptible as Zhuzi notices the distribution box.\n\nnon_diegetic_music:\nThe whimsical score continues from the preceding segment without restarting. A short sparse comedic phrase supports the latitude-and-longitude exchange. Celesta-like sparkles accompany the star sand. As the magic-stone problem is revealed, the music shifts into a thoughtful motif. During 00:13.000-00:15.000, hold a restrained unresolved musical phrase that suggests Zhuzi has just noticed something important, and preserve that exact musical phase into the opening of the next segment.\n\n--- SEGMENT ---\n\nsubject_definitions:\n<Subject 1> is Lin Xia, whose appearance is defined exclusively by <Picture 1>: a young Chinese woman with long dark hair, soft delicate facial features, pink ribbon hair clips, and a light cream floral spaghetti-strap dress. Preserve her exact appearance and restrained progression from suspicion to alarm and reluctant disbelief.\n<Subject 2> is Zhuzi, whose appearance is defined exclusively by <Picture 2>: an anthropomorphic pale-pink pig with a rounded snout, expressive slightly drooping eyes, a gray hoodie beneath a worn brown jacket, loose dark pants, dirty sneakers, and a brown crossbody bag. Preserve his exact appearance and practical, increasingly enthusiastic problem-solving personality.\n<Subject 3> is the little witch, whose appearance is defined exclusively by <Picture 3>: a tiny chibi-style witch girl with long black curls, a black-and-purple layered dress, a wide black witch hat decorated with purple roses, and a staff topped with a glowing purple orb. Preserve her exact appearance and magical expertise.\n<Audio 1> is the voice-timbre reference exclusively for <Subject 1> Lin Xia (S1). <Audio 1> must never be used for <Subject 2> or <Subject 3>.\n<Audio 2> is the voice-timbre reference exclusively for <Subject 2> Zhuzi (S2). <Audio 2> must never be used for <Subject 1> or <Subject 3>.\n<Audio 3> is the voice-timbre reference exclusively for <Subject 3> the little witch (S3). <Audio 3> must never be used for <Subject 1> or <Subject 2>.\n\nsummary:\n[video continuation + reference generation + audio reference] The first 2.000 seconds exactly reproduce the previous segment’s final shot of Zhuzi noticing the electrical distribution box. After the 48-frame overlap ends, the camera cuts as Zhuzi approaches it, making Lin Xia immediately suspicious. Zhuzi explains that a magic stone is essentially an energy-storage device, and the little witch reluctantly admits that the crude explanation is broadly correct. Zhuzi then realizes they can build one themselves. The final 2.000 seconds are isolated as a separate reaction-and-resolution shot so the ending state remains stable for any subsequent continuation.\n\nretention_analysis:\n<Subject 1> (appears throughout the segment): fully_preserved - Lin Xia preserves the exact identity, hairstyle, clothing, face, and realistic body proportions of <Picture 1>, with natural suspicion and concern.\n<Subject 2> (appears throughout the segment): fully_preserved - Zhuzi preserves the exact appearance and clothing of <Picture 2>, transitioning naturally from silent analytical concentration to energetic confidence.\n<Subject 3> (appears throughout the segment): fully_preserved - the little witch preserves the exact chibi identity, clothing, hat, staff, and proportions of <Picture 3>, showing initial disapproval of Zhuzi’s wording followed by reluctant agreement.\n<Audio 1>: reference - only <Subject 1> (S1) follows <Audio 1>.\n<Audio 2>: reference - only <Subject 2> (S2) follows <Audio 2>.\n<Audio 3>: reference - only <Subject 3> (S3) follows <Audio 3>.\n\ndetailed_description:\nContinue the same modern apartment, identical lighting, room layout, coffee-table props, star-sand vial, magic book, character scale, costume details, and cinematic fantasy-comedy presentation. The first 48 frames, exactly 2.000 seconds at 24 fps, reproduce segment 2’s final continuity shot before any new action begins.\n\n[Shot 1] During 00:00.000-00:02.000, exactly continue the preceding segment’s final 2.000-second shot. <Subject 2> Zhuzi remains framed in the same medium profile, staring at the same wall-mounted electrical distribution box. Preserve his exact head angle, narrowed thoughtful eyes, slightly raised ears, body posture, distance from the wall, and early “an idea is forming” expression. <Subject 1> and <Subject 3> remain near the coffee table in the background without speaking. The distribution box, camera position, lighting direction, room ambience, electrical hum, and unresolved musical phase remain unchanged. No new movement or dialogue begins before 00:02.000.\n\n[Shot 2] At 00:02.000, the camera makes a real cut to a wider three-character angle. Zhuzi finally acts on the idea and walks two deliberate steps toward the electrical box, tilting his head upward to inspect it. His movement is analytical rather than mischievous. Lin Xia immediately notices where he is heading. Her posture stiffens, her brows lift and then pull together, and she gives him a suspicious look that clearly says she expects trouble. She half rises from her seat and asks, <d>[Chinese] 你想干嘛？</d> Zhuzi turns his upper body toward her, looking almost surprised that she finds his interest alarming.\n\n[Shot 3] At 00:05.500, the camera cuts to a medium three-shot with Zhuzi near the electrical box and Lin Xia and the little witch near the coffee table. Zhuzi gestures first toward the distribution box and then toward the star-sand vial and magic book. He explains with increasing confidence, <d>[Chinese] 魔法石本质上就是储能装置。</d> Lin Xia does not interrupt. Her eyes move from Zhuzi to the breaker box and back again, and her mouth tightens as the plan begins sounding increasingly dangerous. The little witch reacts differently: she immediately frowns, folds her arms across her tiny chest, and looks offended by how casually he has reduced an ancient magical artifact to engineering terminology. She answers with restrained dignity, <d>[Chinese] 虽然你的说法非常粗鲁，但……差不多。</d> On “差不多,” she reluctantly gives one small nod. Zhuzi’s eyes immediately brighten when he realizes she has confirmed his logic.\n\n[Shot 4] At 00:10.000, remain in the same conversational space but cut slightly closer to Zhuzi and the little witch. Zhuzi looks once more at the electrical box, then at the objects on the table. His posture straightens as the solution becomes obvious to him. He turns back toward the others with an increasingly excited grin and asks rhetorically, <d>[Chinese] 那不就简单了？</d> Lin Xia’s expression becomes even more uneasy because she can see that he has already committed to some kind of plan. The little witch watches him with skeptical curiosity, still holding her arms partially folded.\n\n[Shot 5] At 00:13.000, make a real cut to a standalone final 2.000-second continuity-guide shot. Zhuzi brings both hands together in one crisp clap, then looks confidently toward Lin Xia and the little witch and declares, <d>[Chinese] 没有魔力石，我们造一个。</d> As the sentence lands, the little witch’s skeptical expression changes into intrigued surprise and she slowly lowers her folded arms, seriously considering the idea. Lin Xia remains almost completely still. She looks from Zhuzi to the electrical box and then back at Zhuzi with narrowed eyes and a tense mouth, clearly experiencing a strong sense of impending disaster. Hold the final composition with Zhuzi energized and confident, the little witch cautiously intrigued, Lin Xia deeply suspicious, the electrical box visible in the environment, and the magic book and star sand still present on the coffee table. Preserve this exact character arrangement, emotional state, camera position, lighting, room ambience, and final musical phase through 00:15.000 so this shot remains suitable for a further 48-frame continuation if another segment is added.\n\noverall_soundscape:\nDuring 00:00.000-00:02.000, continue the prior room ambience, faint electrical hum, silence, and unresolved musical phase exactly. After 00:02.000, footsteps, jacket movement, subtle breathing, ordinary apartment ambience, and clear synchronized Mandarin dialogue enter naturally. Zhuzi’s hand clap at 00:13.000 is crisp but not excessively loud. The final two seconds preserve the room tone and faint electrical hum without introducing any unrelated new sound.\n\nnon_diegetic_music:\nThe previous unresolved problem-solving phrase continues seamlessly through 00:00.000-00:02.000. After the cut, light pizzicato strings and restrained piano gradually become more mischievous as Zhuzi explains his theory. The score brightens when the little witch admits he is essentially correct. At 00:13.000, a compact playful “eureka” accent accompanies Zhuzi’s clap and final declaration, then settles into a lightly unresolved fantasy-comedy cadence held through 00:15.000.",
+        48,
+        true
+      ],
+      "widgets_values_named": {
+        "segment_prompts": "subject_definitions:\n<Subject 1> is Lin Xia, whose appearance is defined exclusively by <Picture 1>: a young Chinese woman with long dark hair, soft delicate facial features, pink ribbon hair clips, and a light cream floral spaghetti-strap dress. Her acting is natural and restrained, with subtle changes in eye focus, brows, lips, and posture rather than exaggerated expressions.\n<Subject 2> is Zhuzi, whose appearance is defined exclusively by <Picture 2>: an anthropomorphic pale-pink pig with a rounded snout, expressive slightly drooping eyes, a gray hoodie beneath a worn brown jacket, loose dark pants, dirty sneakers, and a brown crossbody bag. His personality is practical, deadpan, analytical, and naturally comedic.\n<Subject 3> is the little witch, whose appearance is defined exclusively by <Picture 3>: a tiny chibi-style witch girl with long black curls, a black-and-purple layered dress, a wide black witch hat decorated with purple roses, and a staff topped with a glowing purple orb. She is confident and slightly proud when discussing magic, but sincerely unfamiliar with modern scientific concepts.\n<Audio 1> is the voice-timbre reference exclusively for <Subject 1> Lin Xia (S1). <Audio 1> must never be used for <Subject 2> or <Subject 3>.\n<Audio 2> is the voice-timbre reference exclusively for <Subject 2> Zhuzi (S2). <Audio 2> must never be used for <Subject 1> or <Subject 3>.\n<Audio 3> is the voice-timbre reference exclusively for <Subject 3> the little witch (S3). <Audio 3> must never be used for <Subject 1> or <Subject 2>.\n\nsummary:\n[reference generation + audio reference] The target video begins a continuous fantasy-comedy conversation inside Lin Xia’s warm modern apartment. <Subject 1>, <Subject 2>, and <Subject 3> study how to send the little witch back to her original world. The little witch explains the three requirements of space magic, Lin Xia asks whether she remembers the coordinates, and the little witch confidently produces an old spellbook. The final 2.000 seconds, from 00:13.000 to 00:15.000, are deliberately isolated as a single continuity-guide shot showing the absurd written coordinates and Zhuzi’s silent reaction; this exact visual and audio state must become the opening [Shot 1] of the next segment.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1], [Shot 2], [Shot 3]): fully_preserved - preserve Lin Xia’s exact facial identity, hairstyle, pink ribbons, cream floral dress, realistic human proportions, and natural restrained acting from <Picture 1>.\n<Subject 2> (appears in [Shot 1], [Shot 2], [Shot 3]): fully_preserved - preserve Zhuzi’s exact pig facial structure, clothing, bag, proportions, and deadpan personality from <Picture 2>.\n<Subject 3> (appears in [Shot 1], [Shot 2], [Shot 3]): fully_preserved - preserve the little witch’s exact chibi proportions, hairstyle, hat, purple-black dress, staff, and magical visual identity from <Picture 3>.\n<Audio 1>: reference - only <Subject 1> (S1) follows <Audio 1>'s female Mandarin voice timbre and natural delivery.\n<Audio 2>: reference - only <Subject 2> (S2) follows <Audio 2>'s Zhuzi voice timbre and delivery.\n<Audio 3>: reference - only <Subject 3> (S3) follows <Audio 3>'s little-witch voice timbre and delivery.\n\ndetailed_description:\nThe target video has a polished cinematic fantasy-comedy style inside a believable modern Chinese apartment at night. Warm practical lamps create soft amber highlights while the little witch’s purple magic provides a restrained contrasting glow. The coffee table contains notebooks, loose paper, pens, and ordinary household items. All three characters physically occupy the same coherent space. Their eye lines, reactions, pauses, and body language should resemble a naturally acted dialogue scene rather than disconnected character demonstrations.\n\n[Shot 1] A medium-wide three-character composition establishes the living room. <Subject 1> Lin Xia (S1) sits beside the coffee table, leaning slightly forward with focused curiosity. <Subject 2> Zhuzi (S2) sits opposite her with his shoulders slightly hunched and one hand resting near his knee, listening carefully. <Subject 3> the little witch (S3), much smaller than the other two characters, stands on top of the coffee table with her staff upright beside her. She adopts the serious posture of someone explaining an important technical problem and counts the requirements on her fingers while saying, <d>[Chinese] 要用空间魔法回去，需要三个条件。足够强的能量、原世界的坐标，还有能够打开空间裂缝的法阵。</d> The glowing purple orb on her staff gives a soft pulse as she mentions the spatial rift. Lin Xia’s brows draw together slightly as she mentally organizes the information. Zhuzi remains quiet and thoughtful, occasionally glancing toward the notebook as though treating the magical problem like an engineering problem.\n\n[Shot 2] At 00:07.000, the camera cuts to a medium close composition favoring Lin Xia and the little witch while Zhuzi remains naturally visible deeper in the frame. Lin Xia looks up from the notes and asks with cautious hope, <d>[Chinese] 坐标你记得吗？</d> Her expression suggests that she expects this part to be straightforward. The little witch immediately straightens, lifts her chin, and gives a firm confident nod. She replies without hesitation, <d>[Chinese] 当然。</d> She sets her staff against the edge of the table, bends down, and drags a thick old magic book toward herself. Because the book is large relative to her body, the movement has a slight physical struggle but remains believable rather than slapstick. She rapidly turns several heavy pages until she reaches the final page. Lin Xia leans closer with renewed expectation. Zhuzi also shifts forward, curious about what a magical-world coordinate system will look like.\n\n[Shot 3] At 00:13.000, the camera makes a real cut to an isolated close continuity-guide shot that lasts exactly until 00:15.000. The open spellbook dominates the lower center of frame while the three characters are arranged around it. The final page clearly displays the handwritten Chinese text: “银月森林往东二百步。” <Subject 3> proudly points to the sentence with the end of her tiny finger, completely convinced that the coordinates are precise. <Subject 1> freezes for a moment and her previously hopeful expression slowly changes into visible confusion. <Subject 2> leans closer, silently reads the sentence, then slowly raises his eyes from the page with a blank, speechless, deeply unconvinced expression. Do not begin his next dialogue yet. Hold this exact spellbook position, character placement, facial state, camera angle, lighting, and Zhuzi’s silent reaction through the end of the segment so this entire 2.000-second shot can be carried unchanged into the next segment.\n\noverall_soundscape:\nWarm apartment room tone, faint air-conditioner noise, subtle clothing movement, and quiet table contact remain continuous. The magic staff has a very soft crystalline shimmer. During [Shot 3], page rustling stops and the room becomes briefly quieter, allowing Zhuzi’s silent reaction to create the comedic beat. No new dialogue begins during the final continuity-guide shot.\n\nnon_diegetic_music:\nSoft whimsical fantasy-comedy music with pizzicato strings, light piano, and delicate woodwinds. The music stays understated beneath the explanation, gains a faint magical accent during the coordinate discussion, then thins dramatically during 00:13.000-00:15.000 so the strange coordinate reveal and silent reaction land naturally.\n\n--- SEGMENT ---\n\nsubject_definitions:\n<Subject 1> is Lin Xia, whose appearance is defined exclusively by <Picture 1>: a young Chinese woman with long dark hair, soft delicate facial features, pink ribbon hair clips, and a light cream floral spaghetti-strap dress. Preserve the exact identity, clothing, hairstyle, and natural acting established previously.\n<Subject 2> is Zhuzi, whose appearance is defined exclusively by <Picture 2>: an anthropomorphic pale-pink pig with a rounded snout, expressive slightly drooping eyes, a gray hoodie beneath a worn brown jacket, loose dark pants, dirty sneakers, and a brown crossbody bag. Preserve his exact appearance and restrained deadpan comedic personality.\n<Subject 3> is the little witch, whose appearance is defined exclusively by <Picture 3>: a tiny chibi-style witch girl with long black curls, a black-and-purple layered dress, a wide black witch hat decorated with purple roses, and a staff topped with a glowing purple orb.\n<Audio 1> is the voice-timbre reference exclusively for <Subject 1> Lin Xia (S1). <Audio 1> must never be used for <Subject 2> or <Subject 3>.\n<Audio 2> is the voice-timbre reference exclusively for <Subject 2> Zhuzi (S2). <Audio 2> must never be used for <Subject 1> or <Subject 3>.\n<Audio 3> is the voice-timbre reference exclusively for <Subject 3> the little witch (S3). <Audio 3> must never be used for <Subject 1> or <Subject 2>.\n\nsummary:\n[video continuation + reference generation + audio reference] The first 2.000 seconds exactly continue the isolated final shot from the previous segment: the spellbook remains open on the absurd coordinates while Zhuzi silently stares at them. After the carried overlap ends, the scene cuts into Zhuzi’s latitude-and-longitude joke, followed by the little witch revealing star sand from her home world and explaining that the true difficulty is obtaining a complete magic stone. The final 2.000 seconds isolate Zhuzi silently noticing Lin Xia’s electrical distribution box; this exact state becomes the opening [Shot 1] of segment 3.\n\nretention_analysis:\n<Subject 1> (appears throughout the segment): fully_preserved - Lin Xia retains her exact appearance from <Picture 1> and naturally progresses from confusion and restrained amusement to relief and then renewed concern.\n<Subject 2> (appears throughout the segment): fully_preserved - Zhuzi retains his exact appearance from <Picture 2>, with dry humor gradually giving way to practical analytical concentration.\n<Subject 3> (appears throughout the segment): fully_preserved - the little witch retains her exact appearance from <Picture 3>, moving from confident pride to genuine confusion, then renewed hope and seriousness.\n<Audio 1>: reference - only <Subject 1> (S1) follows <Audio 1>.\n<Audio 2>: reference - only <Subject 2> (S2) follows <Audio 2>.\n<Audio 3>: reference - only <Subject 3> (S3) follows <Audio 3>.\n\ndetailed_description:\nContinue the exact apartment environment, lighting direction, prop positions, character appearance, color palette, and physical scale established in the preceding segment. The first 48 frames, exactly 2.000 seconds at 24 fps, are reserved for the carried Latent Guide and must reproduce the preceding final shot rather than introducing new visual information.\n\n[Shot 1] During 00:00.000-00:02.000, exactly continue the preceding segment’s final continuity-guide shot. The same open spellbook fills the lower center of frame with the clearly visible handwritten Chinese sentence “银月森林往东二百步。” <Subject 3> remains beside the page with the same proud, completely confident expression and pointing gesture. <Subject 1> remains leaned toward the book with the same confused facial expression. <Subject 2> remains leaned forward after reading the line, his eyes lifted from the page with the same blank, speechless and unconvinced expression. Preserve the same camera position, focal length, character placement, book orientation, lighting, shadows, facial state, room ambience, musical phase, and silence. No new dialogue occurs inside these first 2.000 seconds.\n\n[Shot 2] At 00:02.000, the camera makes a real cut to a medium close three-character conversational angle. Zhuzi’s deadpan reaction finally resolves into speech. He looks toward the little witch and asks with completely serious delivery, <d>[Chinese] 你们魔法世界没有经纬度？</d> The little witch’s proud smile immediately fades. She blinks, tilts her head with sincere confusion, and asks, <d>[Chinese] 什么度？</d> Zhuzi pauses for a fraction of a second, looks away with tired acceptance, and replies, <d>[Chinese] 当我没问。</d> Lin Xia presses her lips together and briefly suppresses a smile, but her expression returns to focused concern because they still have not solved the problem.\n\n[Shot 3] At 00:05.500, the little witch suddenly remembers something. Her eyes brighten and her posture lifts. She says, <d>[Chinese] 对了，我还有这个。</d> She reaches into a small inner pocket of her robe and carefully removes a tiny transparent vial holding luminous silver-purple star sand. The camera gently moves closer as the grains sparkle like miniature stars, reflecting faint silver light onto her fingers and cheeks. She proudly explains, <d>[Chinese] 这是星砂，可以作定位媒介。</d> Lin Xia’s eyebrows rise and her shoulders visibly relax; for the first time she sees a practical way forward. Zhuzi also becomes more serious, leaning closer to study the vial rather than joking.\n\n[Shot 4] At 00:08.000, the camera returns to an intimate medium three-shot. The little witch carefully places the star-sand vial beside the magic book. Her expression becomes more solemn and her voice loses some of its earlier confidence. She says, <d>[Chinese] 但麻烦是我需要一块魔力石。</d> Lin Xia looks around the completely ordinary modern apartment, gives a helpless little frown, and replies, <d>[Chinese] 可这个世界……应该没有魔力石</d> The little witch gives a small reluctant nod. Zhuzi does not immediately respond. While Lin Xia and the little witch are still focused on the table, his eyes begin wandering across the room as he thinks.\n\n[Shot 5] At 00:13.000, make a real cut to a separate 2.000-second continuity-guide shot. Frame Zhuzi in a medium profile with part of the apartment wall visible beyond him. His gaze locks onto a wall-mounted household electrical distribution box. His ears lift slightly, his eyes narrow in concentration, and the blank concern on his face gradually transforms into the earliest hint of an idea. In the background, Lin Xia and the little witch remain near the table but are no longer speaking. Do not have Zhuzi approach the box and do not let Lin Xia ask what he is doing yet. Hold Zhuzi’s exact head angle, gaze direction, thoughtful expression, body posture, the distribution box position, camera composition, apartment lighting, room ambience, and musical phase through 00:15.000. This complete 2.000-second shot must become [Shot 1] of the next segment.\n\noverall_soundscape:\nDuring 00:00.000-00:02.000, preserve the preceding silence, apartment room tone, and musical phase exactly. After 00:02.000, natural speech, subtle breathing, light paper movement, and quiet clothing sounds return. The star sand produces a delicate crystalline shimmer from 00:06.500 onward, then fades. From 00:13.000-00:15.000, dialogue stops; the ordinary apartment ambience continues and a very faint electrical hum may become perceptible as Zhuzi notices the distribution box.\n\nnon_diegetic_music:\nThe whimsical score continues from the preceding segment without restarting. A short sparse comedic phrase supports the latitude-and-longitude exchange. Celesta-like sparkles accompany the star sand. As the magic-stone problem is revealed, the music shifts into a thoughtful motif. During 00:13.000-00:15.000, hold a restrained unresolved musical phrase that suggests Zhuzi has just noticed something important, and preserve that exact musical phase into the opening of the next segment.\n\n--- SEGMENT ---\n\nsubject_definitions:\n<Subject 1> is Lin Xia, whose appearance is defined exclusively by <Picture 1>: a young Chinese woman with long dark hair, soft delicate facial features, pink ribbon hair clips, and a light cream floral spaghetti-strap dress. Preserve her exact appearance and restrained progression from suspicion to alarm and reluctant disbelief.\n<Subject 2> is Zhuzi, whose appearance is defined exclusively by <Picture 2>: an anthropomorphic pale-pink pig with a rounded snout, expressive slightly drooping eyes, a gray hoodie beneath a worn brown jacket, loose dark pants, dirty sneakers, and a brown crossbody bag. Preserve his exact appearance and practical, increasingly enthusiastic problem-solving personality.\n<Subject 3> is the little witch, whose appearance is defined exclusively by <Picture 3>: a tiny chibi-style witch girl with long black curls, a black-and-purple layered dress, a wide black witch hat decorated with purple roses, and a staff topped with a glowing purple orb. Preserve her exact appearance and magical expertise.\n<Audio 1> is the voice-timbre reference exclusively for <Subject 1> Lin Xia (S1). <Audio 1> must never be used for <Subject 2> or <Subject 3>.\n<Audio 2> is the voice-timbre reference exclusively for <Subject 2> Zhuzi (S2). <Audio 2> must never be used for <Subject 1> or <Subject 3>.\n<Audio 3> is the voice-timbre reference exclusively for <Subject 3> the little witch (S3). <Audio 3> must never be used for <Subject 1> or <Subject 2>.\n\nsummary:\n[video continuation + reference generation + audio reference] The first 2.000 seconds exactly reproduce the previous segment’s final shot of Zhuzi noticing the electrical distribution box. After the 48-frame overlap ends, the camera cuts as Zhuzi approaches it, making Lin Xia immediately suspicious. Zhuzi explains that a magic stone is essentially an energy-storage device, and the little witch reluctantly admits that the crude explanation is broadly correct. Zhuzi then realizes they can build one themselves. The final 2.000 seconds are isolated as a separate reaction-and-resolution shot so the ending state remains stable for any subsequent continuation.\n\nretention_analysis:\n<Subject 1> (appears throughout the segment): fully_preserved - Lin Xia preserves the exact identity, hairstyle, clothing, face, and realistic body proportions of <Picture 1>, with natural suspicion and concern.\n<Subject 2> (appears throughout the segment): fully_preserved - Zhuzi preserves the exact appearance and clothing of <Picture 2>, transitioning naturally from silent analytical concentration to energetic confidence.\n<Subject 3> (appears throughout the segment): fully_preserved - the little witch preserves the exact chibi identity, clothing, hat, staff, and proportions of <Picture 3>, showing initial disapproval of Zhuzi’s wording followed by reluctant agreement.\n<Audio 1>: reference - only <Subject 1> (S1) follows <Audio 1>.\n<Audio 2>: reference - only <Subject 2> (S2) follows <Audio 2>.\n<Audio 3>: reference - only <Subject 3> (S3) follows <Audio 3>.\n\ndetailed_description:\nContinue the same modern apartment, identical lighting, room layout, coffee-table props, star-sand vial, magic book, character scale, costume details, and cinematic fantasy-comedy presentation. The first 48 frames, exactly 2.000 seconds at 24 fps, reproduce segment 2’s final continuity shot before any new action begins.\n\n[Shot 1] During 00:00.000-00:02.000, exactly continue the preceding segment’s final 2.000-second shot. <Subject 2> Zhuzi remains framed in the same medium profile, staring at the same wall-mounted electrical distribution box. Preserve his exact head angle, narrowed thoughtful eyes, slightly raised ears, body posture, distance from the wall, and early “an idea is forming” expression. <Subject 1> and <Subject 3> remain near the coffee table in the background without speaking. The distribution box, camera position, lighting direction, room ambience, electrical hum, and unresolved musical phase remain unchanged. No new movement or dialogue begins before 00:02.000.\n\n[Shot 2] At 00:02.000, the camera makes a real cut to a wider three-character angle. Zhuzi finally acts on the idea and walks two deliberate steps toward the electrical box, tilting his head upward to inspect it. His movement is analytical rather than mischievous. Lin Xia immediately notices where he is heading. Her posture stiffens, her brows lift and then pull together, and she gives him a suspicious look that clearly says she expects trouble. She half rises from her seat and asks, <d>[Chinese] 你想干嘛？</d> Zhuzi turns his upper body toward her, looking almost surprised that she finds his interest alarming.\n\n[Shot 3] At 00:05.500, the camera cuts to a medium three-shot with Zhuzi near the electrical box and Lin Xia and the little witch near the coffee table. Zhuzi gestures first toward the distribution box and then toward the star-sand vial and magic book. He explains with increasing confidence, <d>[Chinese] 魔法石本质上就是储能装置。</d> Lin Xia does not interrupt. Her eyes move from Zhuzi to the breaker box and back again, and her mouth tightens as the plan begins sounding increasingly dangerous. The little witch reacts differently: she immediately frowns, folds her arms across her tiny chest, and looks offended by how casually he has reduced an ancient magical artifact to engineering terminology. She answers with restrained dignity, <d>[Chinese] 虽然你的说法非常粗鲁，但……差不多。</d> On “差不多,” she reluctantly gives one small nod. Zhuzi’s eyes immediately brighten when he realizes she has confirmed his logic.\n\n[Shot 4] At 00:10.000, remain in the same conversational space but cut slightly closer to Zhuzi and the little witch. Zhuzi looks once more at the electrical box, then at the objects on the table. His posture straightens as the solution becomes obvious to him. He turns back toward the others with an increasingly excited grin and asks rhetorically, <d>[Chinese] 那不就简单了？</d> Lin Xia’s expression becomes even more uneasy because she can see that he has already committed to some kind of plan. The little witch watches him with skeptical curiosity, still holding her arms partially folded.\n\n[Shot 5] At 00:13.000, make a real cut to a standalone final 2.000-second continuity-guide shot. Zhuzi brings both hands together in one crisp clap, then looks confidently toward Lin Xia and the little witch and declares, <d>[Chinese] 没有魔力石，我们造一个。</d> As the sentence lands, the little witch’s skeptical expression changes into intrigued surprise and she slowly lowers her folded arms, seriously considering the idea. Lin Xia remains almost completely still. She looks from Zhuzi to the electrical box and then back at Zhuzi with narrowed eyes and a tense mouth, clearly experiencing a strong sense of impending disaster. Hold the final composition with Zhuzi energized and confident, the little witch cautiously intrigued, Lin Xia deeply suspicious, the electrical box visible in the environment, and the magic book and star sand still present on the coffee table. Preserve this exact character arrangement, emotional state, camera position, lighting, room ambience, and final musical phase through 00:15.000 so this shot remains suitable for a further 48-frame continuation if another segment is added.\n\noverall_soundscape:\nDuring 00:00.000-00:02.000, continue the prior room ambience, faint electrical hum, silence, and unresolved musical phase exactly. After 00:02.000, footsteps, jacket movement, subtle breathing, ordinary apartment ambience, and clear synchronized Mandarin dialogue enter naturally. Zhuzi’s hand clap at 00:13.000 is crisp but not excessively loud. The final two seconds preserve the room tone and faint electrical hum without introducing any unrelated new sound.\n\nnon_diegetic_music:\nThe previous unresolved problem-solving phrase continues seamlessly through 00:00.000-00:02.000. After the cut, light pizzicato strings and restrained piano gradually become more mischievous as Zhuzi explains his theory. The score brightens when the little witch admits he is essentially correct. At 00:13.000, a compact playful “eureka” accent accompanies Zhuzi’s clap and final declaration, then settles into a lightly unresolved fantasy-comedy cadence held through 00:15.000.",
+        "overlap_frames": 48,
+        "inject_continuity_instruction": true
+      }
+    },
+    {
+      "id": 108,
+      "type": "GetNode",
+      "pos": [
+        1950,
+        -2660
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            157
+          ]
+        }
+      ],
+      "title": "Get_iteration",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "iteration"
+      ],
+      "widgets_values_named": {
+        "Constant": "iteration"
+      },
+      "color": "#1b4669",
+      "bgcolor": "#29699c"
+    },
+    {
+      "id": 14,
+      "type": "RandomNoise",
+      "pos": [
+        4470,
+        -2140
+      ],
+      "size": [
+        330,
+        90
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 32,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "noise_seed",
+          "type": "INT",
+          "widget": {
+            "name": "noise_seed"
+          },
+          "link": 150
+        }
+      ],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        969,
+        "fixed"
+      ],
+      "widgets_values_named": {
+        "noise_seed": 969,
+        "control_after_generate": "fixed"
+      }
+    },
+    {
+      "id": 17,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        4380,
+        -2480
+      ],
+      "size": [
+        320,
+        460
+      ],
+      "flags": {},
+      "order": 59,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 21
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 22
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 23
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 24
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            27,
+            29,
+            31
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      }
+    },
+    {
+      "id": 104,
+      "type": "GetNode",
+      "pos": [
+        5070,
+        -2430
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 13,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            201
+          ]
+        }
+      ],
+      "title": "Get_last",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "last"
+      ],
+      "widgets_values_named": {
+        "Constant": "last"
+      }
+    },
+    {
+      "id": 123,
+      "type": "GetNode",
+      "pos": [
+        5060,
+        -2190
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "FLOW_CONTROL",
+          "type": "FLOW_CONTROL",
+          "links": [
+            202
+          ]
+        }
+      ],
+      "title": "Get_flow_control",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "flow_control"
+      ],
+      "widgets_values_named": {
+        "Constant": "flow_control"
+      }
+    },
+    {
+      "id": 19,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        4720,
+        -2360
+      ],
+      "size": [
+        220,
+        50
+      ],
+      "flags": {},
+      "order": 61,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 27
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 94
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            34
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeAudio",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      }
+    },
+    {
+      "id": 20,
+      "type": "VAEDecode",
+      "pos": [
+        4720,
+        -2460
+      ],
+      "size": [
+        220,
+        50
+      ],
+      "flags": {},
+      "order": 62,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 29
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 92
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            32
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      }
+    },
+    {
+      "id": 118,
+      "type": "SetNode",
+      "pos": [
+        2890,
+        -1060
+      ],
+      "size": [
+        250,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 47,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "输入",
+          "name": "FLOW_CONTROL",
+          "type": "FLOW_CONTROL",
+          "link": 173
+        }
+      ],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "FLOW_CONTROL",
+          "type": "FLOW_CONTROL",
+          "links": null
+        }
+      ],
+      "title": "Set_flow_control",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "flow_control",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "flow_control"
+      ],
+      "widgets_values_named": {
+        "Constant": "flow_control"
+      }
+    },
+    {
+      "id": 94,
+      "type": "easy seed",
+      "pos": [
+        3170,
+        -1120
+      ],
+      "size": [
+        280,
+        120
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "随机种子",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "随机种子",
+          "name": "seed",
+          "type": "INT",
+          "links": [
+            149
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy seed",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        373150934065037,
+        "fixed",
+        null
+      ],
+      "widgets_values_named": {
+        "seed": 373150934065037,
+        "control_after_generate": "fixed",
+        "🎲 Manual Random Seed": null
+      }
+    },
+    {
+      "id": 125,
+      "type": "ResolutionSelector",
+      "pos": [
+        2610,
+        -1140
+      ],
+      "size": [
+        230,
+        150
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 16,
+      "mode": 0,
+      "showAdvanced": false,
+      "inputs": [
+        {
+          "label": "aspect_ratio",
+          "name": "aspect_ratio",
+          "type": "COMBO",
+          "widget": {
+            "name": "aspect_ratio"
+          },
+          "link": null
+        },
+        {
+          "label": "megapixels",
+          "name": "megapixels",
+          "type": "FLOAT",
+          "widget": {
+            "name": "megapixels"
+          },
+          "link": null
+        },
+        {
+          "label": "multiple",
+          "name": "multiple",
+          "type": "INT",
+          "widget": {
+            "name": "multiple"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "width",
+          "name": "width",
+          "type": "INT",
+          "links": [
+            174,
+            181
+          ]
+        },
+        {
+          "label": "height",
+          "name": "height",
+          "type": "INT",
+          "links": [
+            175,
+            182
+          ]
+        }
+      ],
+      "title": "Minimax H3 一采",
+      "properties": {
+        "Node name for S&R": "ResolutionSelector",
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "16:9 (Widescreen)",
+        0.2,
+        32
+      ],
+      "widgets_values_named": {
+        "aspect_ratio": "16:9 (Widescreen)",
+        "megapixels": 0.2,
+        "multiple": 32
+      }
+    },
+    {
+      "id": 57,
+      "type": "UNETLoader",
+      "pos": [
+        2600,
+        -1720
+      ],
+      "size": [
+        510,
+        90
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "unet_name",
+          "name": "unet_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          },
+          "link": null
+        },
+        {
+          "label": "weight_dtype",
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "weight_dtype"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "模型",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            81
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader",
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        },
+        "models": [
+          {
+            "directory_invalid": true,
+            "name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+            "directory": "diffusion_models",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax\\minimax_h3_ref2va_hybrid_b25-49_bf16.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax\\minimax_h3_ref2va_hybrid_b25-49_bf16.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 64,
+      "type": "ModelAttentionBackend",
+      "pos": [
+        2600,
+        -1300
+      ],
+      "size": [
+        510,
+        80
+      ],
+      "flags": {},
+      "order": 54,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 84
+        },
+        {
+          "label": "attention",
+          "name": "attention",
+          "type": "COMBO",
+          "widget": {
+            "name": "attention"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "MODEL",
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            83
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelAttentionBackend",
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "comfy kitchen attention"
+      ],
+      "widgets_values_named": {
+        "attention": "comfy kitchen attention"
+      }
+    },
+    {
+      "id": 62,
+      "type": "CLIPLoader",
+      "pos": [
+        3130,
+        -1400
+      ],
+      "size": [
+        280,
+        110
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "clip_name",
+          "name": "clip_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name"
+          },
+          "link": null
+        },
+        {
+          "label": "type",
+          "name": "type",
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          },
+          "link": null
+        },
+        {
+          "label": "device",
+          "name": "device",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            87
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        },
+        "models": [
+          {
+            "name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "directory": "text_encoders",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          }
+        ]
+      },
+      "widgets_values": [
+        "text_encoders\\qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "text_encoders\\qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+        "type": "minimax",
+        "device": "default"
+      }
+    },
+    {
+      "id": 23,
+      "type": "CreateVideo",
+      "pos": [
+        4720,
+        -2250
+      ],
+      "size": [
+        220,
+        150
+      ],
+      "flags": {},
+      "order": 66,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 35
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            191
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        24,
+        8,
+        "sRGB",
+        "none"
+      ],
+      "widgets_values_named": {
+        "fps": 24,
+        "bit_depth": 8,
+        "color_space": "sRGB",
+        "codec": "none"
+      }
+    },
+    {
+      "id": 130,
+      "type": "VRAM_Debug",
+      "pos": [
+        4720,
+        -2060
+      ],
+      "size": [
+        230,
+        190
+      ],
+      "flags": {},
+      "order": 68,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "任何输入",
+          "name": "any_input",
+          "shape": 7,
+          "type": "*",
+          "link": 191
+        },
+        {
+          "label": "图像通过",
+          "name": "image_pass",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "模型通过",
+          "name": "model_pass",
+          "shape": 7,
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "label": "清空缓存",
+          "name": "empty_cache",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "empty_cache"
+          },
+          "link": null
+        },
+        {
+          "label": "垃圾回收",
+          "name": "gc_collect",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "gc_collect"
+          },
+          "link": null
+        },
+        {
+          "label": "卸载所有模型",
+          "name": "unload_all_models",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "unload_all_models"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "任何输出",
+          "name": "any_output",
+          "type": "*",
+          "links": [
+            200
+          ]
+        },
+        {
+          "label": "图像通过",
+          "name": "image_pass",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "模型通过",
+          "name": "model_pass",
+          "type": "MODEL"
+        },
+        {
+          "label": "清理前剩余内存",
+          "name": "freemem_before",
+          "type": "INT"
+        },
+        {
+          "label": "清理后剩余内存",
+          "name": "freemem_after",
+          "type": "INT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VRAM_Debug",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {
+          "empty_cache": true,
+          "unload_all_models": true,
+          "gc_collect": true
+        }
+      },
+      "widgets_values": [
+        true,
+        true,
+        true
+      ],
+      "widgets_values_named": {
+        "empty_cache": true,
+        "gc_collect": true,
+        "unload_all_models": true
+      }
+    },
+    {
+      "id": 122,
+      "type": "WhaleTransLoopVariable",
+      "pos": [
+        4380,
+        -1960
+      ],
+      "size": [
+        320,
+        50
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "iteration",
+          "type": "INT",
+          "link": 166
+        }
+      ],
+      "outputs": [
+        {
+          "name": "current_value",
+          "type": "LATENT",
+          "links": [
+            167
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WhaleTransLoopVariable",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      }
+    },
+    {
+      "id": 95,
+      "type": "VAEDecode",
+      "pos": [
+        4430,
+        -1550
+      ],
+      "size": [
+        260,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 73,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 132
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 193
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            139
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      }
+    },
+    {
+      "id": 132,
+      "type": "WhaleTransAccumulateSaveVideo",
+      "pos": [
+        4970,
+        -2460
+      ],
+      "size": [
+        750,
+        600
+      ],
+      "flags": {},
+      "order": 71,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "*",
+          "link": 200
+        },
+        {
+          "name": "last",
+          "type": "BOOLEAN",
+          "link": 201
+        },
+        {
+          "name": "flow_control",
+          "shape": 7,
+          "type": "FLOW_CONTROL",
+          "link": 202
+        },
+        {
+          "name": "feedback_latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": 203
+        },
+        {
+          "name": "complete_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "WhaleTransAccumulateSaveVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "video/ComfyUI",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "video/ComfyUI",
+        "format": "auto",
+        "codec": "auto"
+      }
+    },
+    {
+      "id": 111,
+      "type": "GetNode",
+      "pos": [
+        3880,
+        -1090
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            154
+          ]
+        }
+      ],
+      "title": "Get_first",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "first"
+      ],
+      "widgets_values_named": {
+        "Constant": "first"
+      }
+    },
+    {
+      "id": 96,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        4420,
+        -1380
+      ],
+      "size": [
+        260,
+        50
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 74,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 133
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 192
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            140
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeAudio",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      }
+    },
+    {
+      "id": 35,
+      "type": "RandomNoise",
+      "pos": [
+        4420,
+        -1430
+      ],
+      "size": [
+        270,
+        90
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 41,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "noise_seed",
+          "name": "noise_seed",
+          "type": "INT",
+          "widget": {
+            "name": "noise_seed"
+          },
+          "link": 151
+        }
+      ],
+      "outputs": [
+        {
+          "label": "噪波生成",
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            51,
+            63
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {
+          "noise_seed": true
+        }
+      },
+      "widgets_values": [
+        242512508216011,
+        "fixed"
+      ],
+      "widgets_values_named": {
+        "noise_seed": 242512508216011,
+        "control_after_generate": "fixed"
+      }
+    },
+    {
+      "id": 107,
+      "type": "GetNode",
+      "pos": [
+        4410,
+        -1510
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 20,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            151
+          ]
+        }
+      ],
+      "title": "Get_seed",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "seed"
+      ],
+      "widgets_values_named": {
+        "Constant": "seed"
+      }
+    },
+    {
+      "id": 79,
+      "type": "GetNode",
+      "pos": [
+        3570,
+        -1330
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 21,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            102,
+            193
+          ]
+        }
+      ],
+      "title": "Get_vae_video",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "vae_video"
+      ],
+      "widgets_values_named": {
+        "Constant": "vae_video"
+      }
+    },
+    {
+      "id": 120,
+      "type": "GetNode",
+      "pos": [
+        5150,
+        -1540
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 22,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            197
+          ]
+        }
+      ],
+      "title": "Get_last",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "last"
+      ],
+      "widgets_values_named": {
+        "Constant": "last"
+      }
+    },
+    {
+      "id": 119,
+      "type": "GetNode",
+      "pos": [
+        5130,
+        -1480
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 23,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "FLOW_CONTROL",
+          "type": "FLOW_CONTROL",
+          "links": [
+            198
+          ]
+        }
+      ],
+      "title": "Get_flow_control",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "flow_control"
+      ],
+      "widgets_values_named": {
+        "Constant": "flow_control"
+      }
+    },
+    {
+      "id": 33,
+      "type": "LTXVSeparateAVLatent",
+      "pos": [
+        4090,
+        -1230
+      ],
+      "size": [
+        260,
+        50
+      ],
+      "flags": {},
+      "order": 63,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "av_latent",
+          "name": "av_latent",
+          "type": "LATENT",
+          "link": 47
+        }
+      ],
+      "outputs": [
+        {
+          "label": "video_latent",
+          "name": "video_latent",
+          "type": "LATENT",
+          "links": [
+            49
+          ]
+        },
+        {
+          "label": "audio_latent",
+          "name": "audio_latent",
+          "type": "LATENT",
+          "links": [
+            59
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVSeparateAVLatent",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {}
+      }
+    },
+    {
+      "id": 99,
+      "type": "VRAM_Debug",
+      "pos": [
+        4690,
+        -1260
+      ],
+      "size": [
+        290,
+        200
+      ],
+      "flags": {},
+      "order": 78,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "任何输入",
+          "name": "any_input",
+          "shape": 7,
+          "type": "*",
+          "link": 137
+        },
+        {
+          "label": "图像通过",
+          "name": "image_pass",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "模型通过",
+          "name": "model_pass",
+          "shape": 7,
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "label": "清空缓存",
+          "name": "empty_cache",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "empty_cache"
+          },
+          "link": null
+        },
+        {
+          "label": "垃圾回收",
+          "name": "gc_collect",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "gc_collect"
+          },
+          "link": null
+        },
+        {
+          "label": "卸载所有模型",
+          "name": "unload_all_models",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "unload_all_models"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "任何输出",
+          "name": "any_output",
+          "type": "*",
+          "links": [
+            196
+          ]
+        },
+        {
+          "label": "图像通过",
+          "name": "image_pass",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "模型通过",
+          "name": "model_pass",
+          "type": "MODEL"
+        },
+        {
+          "label": "5,232,013,800   freemem_before",
+          "name": "freemem_before",
+          "type": "INT"
+        },
+        {
+          "label": "32,271,429,724      freemem_after",
+          "name": "freemem_after",
+          "type": "INT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VRAM_Debug",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {
+          "empty_cache": true,
+          "unload_all_models": true,
+          "gc_collect": true
+        }
+      },
+      "widgets_values": [
+        true,
+        true,
+        true
+      ],
+      "widgets_values_named": {
+        "empty_cache": true,
+        "gc_collect": true,
+        "unload_all_models": true
+      }
+    },
+    {
+      "id": 78,
+      "type": "MiniMaxH3LoopSegmentFinalize",
+      "pos": [
+        4370,
+        -1250
+      ],
+      "size": [
+        300,
+        150
+      ],
+      "flags": {},
+      "order": 75,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "sampled_latent",
+          "type": "LATENT",
+          "link": 125
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 139
+        },
+        {
+          "name": "iteration",
+          "type": "INT",
+          "link": 127
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 140
+        }
+      ],
+      "outputs": [
+        {
+          "name": "反馈 latent",
+          "type": "LATENT",
+          "links": [
+            179
+          ]
+        },
+        {
+          "name": "去重画面",
+          "type": "IMAGE",
+          "links": [
+            134
+          ]
+        },
+        {
+          "name": "去重音频",
+          "type": "AUDIO",
+          "links": [
+            135
+          ]
+        },
+        {
+          "name": "保留帧数",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "去重状态",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3LoopSegmentFinalize",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        48
+      ],
+      "widgets_values_named": {
+        "overlap_frames": 48
+      }
+    },
+    {
+      "id": 98,
+      "type": "CreateVideo",
+      "pos": [
+        4090,
+        -1140
+      ],
+      "size": [
+        260,
+        150
+      ],
+      "flags": {},
+      "order": 77,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 134
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 135
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            137
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        24,
+        8,
+        "sRGB",
+        "none"
+      ],
+      "widgets_values_named": {
+        "fps": 24,
+        "bit_depth": 8,
+        "color_space": "sRGB",
+        "codec": "none"
+      }
+    },
+    {
+      "id": 127,
+      "type": "H3LatentShrink",
+      "pos": [
+        5140,
+        -1340
+      ],
+      "size": [
+        240,
+        130
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 76,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 179
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 181
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 182
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            199
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "H3LatentShrink",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        960,
+        544,
+        "bicubic",
+        "disabled"
+      ],
+      "widgets_values_named": {
+        "width": 960,
+        "height": 544,
+        "upscale_method": "bicubic",
+        "crop": "disabled"
+      }
+    },
+    {
+      "id": 151,
+      "type": "H3HighRefineGuide",
+      "pos": [
+        3520,
+        -1070
+      ],
+      "size": [
+        270,
+        80
+      ],
+      "flags": {},
+      "order": 67,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "source_latent",
+          "type": "LATENT",
+          "link": 230
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 234
+        },
+        {
+          "name": "guide_frames",
+          "type": "INT",
+          "widget": {
+            "name": "guide_frames"
+          },
+          "link": 235
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            233
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            231
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "H3HighRefineGuide",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        22
+      ],
+      "widgets_values_named": {
+        "guide_frames": 22
+      }
+    },
+    {
+      "id": 44,
+      "type": "LTXVConcatAVLatent",
+      "pos": [
+        4450,
+        -1230
+      ],
+      "size": [
+        220,
+        50
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 70,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "video_latent",
+          "name": "video_latent",
+          "type": "LATENT",
+          "link": 231
+        },
+        {
+          "label": "audio_latent",
+          "name": "audio_latent",
+          "type": "LATENT",
+          "link": 59
+        }
+      ],
+      "outputs": [
+        {
+          "label": "latent",
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            216
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVConcatAVLatent",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {}
+      }
+    },
+    {
+      "id": 34,
+      "type": "KSamplerSelect",
+      "pos": [
+        4100,
+        -1500
+      ],
+      "size": [
+        250,
+        60
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "采样器",
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            53,
+            65
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {
+          "sampler_name": true
+        }
+      },
+      "widgets_values": [
+        "euler"
+      ],
+      "widgets_values_named": {
+        "sampler_name": "euler"
+      }
+    },
+    {
+      "id": 32,
+      "type": "BasicGuider",
+      "pos": [
+        4100,
+        -1400
+      ],
+      "size": [
+        250,
+        50
+      ],
+      "flags": {},
+      "order": 57,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "模型",
+          "name": "model",
+          "type": "MODEL",
+          "link": 156
+        },
+        {
+          "label": "条件",
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 109
+        }
+      ],
+      "outputs": [
+        {
+          "label": "引导",
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            52
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {}
+      }
+    },
+    {
+      "id": 121,
+      "type": "WhaleTransLoopVariable",
+      "pos": [
+        4100,
+        -1310
+      ],
+      "size": [
+        250,
+        30
+      ],
+      "flags": {},
+      "order": 43,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "iteration",
+          "type": "INT",
+          "link": 163
+        }
+      ],
+      "outputs": [
+        {
+          "name": "current_value",
+          "type": "LATENT",
+          "links": [
+            164
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WhaleTransLoopVariable",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      }
+    },
+    {
+      "id": 80,
+      "type": "GetNode",
+      "pos": [
+        3610,
+        -1390
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 25,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            103,
+            192
+          ]
+        }
+      ],
+      "title": "Get_vae_audio",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "vae_audio"
+      ],
+      "widgets_values_named": {
+        "Constant": "vae_audio"
+      }
+    },
+    {
+      "id": 72,
+      "type": "GetNode",
+      "pos": [
+        3880,
+        -1180
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 26,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            155,
+            156,
+            228
+          ]
+        }
+      ],
+      "title": "Get_model_1",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "model_1"
+      ],
+      "widgets_values_named": {
+        "Constant": "model_1"
+      }
+    },
+    {
+      "id": 30,
+      "type": "BasicScheduler",
+      "pos": [
+        3520,
+        -1230
+      ],
+      "size": [
+        270,
+        110
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "模型",
+          "name": "model",
+          "type": "MODEL",
+          "link": 155
+        },
+        {
+          "label": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "label": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "label": "denoise",
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "Sigmas",
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            48
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {
+          "scheduler": true,
+          "denoise": true,
+          "steps": true
+        }
+      },
+      "widgets_values": [
+        "beta",
+        8,
+        1
+      ],
+      "widgets_values_named": {
+        "scheduler": "beta",
+        "steps": 8,
+        "denoise": 1
+      }
+    },
+    {
+      "id": 81,
+      "type": "GetNode",
+      "pos": [
+        3650,
+        -1450
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 27,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            104
+          ]
+        }
+      ],
+      "title": "Get_clip",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "clip"
+      ],
+      "widgets_values_named": {
+        "Constant": "clip"
+      }
+    },
+    {
+      "id": 75,
+      "type": "MiniMaxH3TimelineEncoder",
+      "pos": [
+        3510,
+        -1470
+      ],
+      "size": [
+        290,
+        180
+      ],
+      "flags": {},
+      "order": 49,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 104
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 102
+        },
+        {
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 103
+        },
+        {
+          "name": "plan",
+          "type": "MINIMAX_H3_TIMELINE_PLAN",
+          "link": 107
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 159
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            99,
+            234
+          ]
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            100
+          ]
+        },
+        {
+          "name": "Merged Video Audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "Merged Standalone Audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3TimelineEncoder",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "prompt": true
+          },
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        "max"
+      ],
+      "widgets_values_named": {
+        "prompt": "",
+        "ref_image_size": "max"
+      }
+    },
+    {
+      "id": 84,
+      "type": "GetNode",
+      "pos": [
+        3870,
+        -1150
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 28,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            127,
+            144,
+            163
+          ]
+        }
+      ],
+      "title": "Get_iteration",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "iteration"
+      ],
+      "widgets_values_named": {
+        "Constant": "iteration"
+      },
+      "color": "#1b4669",
+      "bgcolor": "#29699c"
+    },
+    {
+      "id": 150,
+      "type": "BasicGuider",
+      "pos": [
+        4370,
+        -1060
+      ],
+      "size": [
+        300,
+        50
+      ],
+      "flags": {},
+      "order": 69,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "模型",
+          "name": "model",
+          "type": "MODEL",
+          "link": 228
+        },
+        {
+          "label": "条件",
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 233
+        }
+      ],
+      "outputs": [
+        {
+          "label": "引导",
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            225
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {}
+      }
+    },
+    {
+      "id": 38,
+      "type": "MinimaxH3LatentUpscaler3D",
+      "pos": [
+        3810,
+        -1210
+      ],
+      "size": [
+        260,
+        210
+      ],
+      "flags": {},
+      "order": 65,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "latent",
+          "name": "latent",
+          "type": "*",
+          "link": 49
+        },
+        {
+          "label": "model_name",
+          "name": "model_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "model_name"
+          },
+          "link": null
+        },
+        {
+          "label": "mode",
+          "name": "mode",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "mode"
+          },
+          "link": null
+        },
+        {
+          "label": "align",
+          "name": "align",
+          "type": "INT",
+          "widget": {
+            "name": "align"
+          },
+          "link": null
+        },
+        {
+          "label": "enable_chunking",
+          "name": "enable_chunking",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enable_chunking"
+          },
+          "link": null
+        },
+        {
+          "label": "device",
+          "name": "device",
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          },
+          "link": null
+        },
+        {
+          "label": "precision",
+          "name": "precision",
+          "type": "COMBO",
+          "widget": {
+            "name": "precision"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "latent",
+          "name": "latent",
+          "type": "*",
+          "links": [
+            230
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MinimaxH3LatentUpscaler3D",
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "minimax_h3_latent_upscaler_3d_fp16.safetensors",
+        "scale by multiplier",
+        1.5,
+        32,
+        "cuda",
+        "cuda",
+        "bf16"
+      ],
+      "widgets_values_named": {
+        "model_name": "minimax_h3_latent_upscaler_3d_fp16.safetensors",
+        "mode": "scale by multiplier",
+        "mode.scale": 1.5,
+        "align": 32,
+        "enable_chunking": "cuda",
+        "device": "cuda",
+        "precision": "bf16"
+      }
+    },
+    {
+      "id": 77,
+      "type": "MiniMaxH3LoopLatentGuide",
+      "pos": [
+        3810,
+        -1440
+      ],
+      "size": [
+        250,
+        170
+      ],
+      "flags": {},
+      "order": 53,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 99
+        },
+        {
+          "name": "target_latent",
+          "type": "LATENT",
+          "link": 100
+        },
+        {
+          "name": "is_first",
+          "type": "BOOLEAN",
+          "link": 154
+        },
+        {
+          "name": "iteration",
+          "type": "INT",
+          "link": 144
+        },
+        {
+          "name": "previous_latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": 164
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            109
+          ]
+        },
+        {
+          "name": "目标 latent",
+          "type": "LATENT",
+          "links": [
+            110
+          ]
+        },
+        {
+          "name": "实际重叠帧",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "循环状态",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3LoopLatentGuide",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        48,
+        true
+      ],
+      "widgets_values_named": {
+        "overlap_frames": 48,
+        "continue_audio_latent": true
+      }
+    },
+    {
+      "id": 37,
+      "type": "ExtendIntermediateSigmas",
+      "pos": [
+        3810,
+        -1630
+      ],
+      "size": [
+        250,
+        130
+      ],
+      "flags": {},
+      "order": 51,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "sigmas",
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 48
+        },
+        {
+          "label": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "label": "start_at_sigma",
+          "name": "start_at_sigma",
+          "type": "FLOAT",
+          "widget": {
+            "name": "start_at_sigma"
+          },
+          "link": null
+        },
+        {
+          "label": "end_at_sigma",
+          "name": "end_at_sigma",
+          "type": "FLOAT",
+          "widget": {
+            "name": "end_at_sigma"
+          },
+          "link": null
+        },
+        {
+          "label": "spacing",
+          "name": "spacing",
+          "type": "COMBO",
+          "widget": {
+            "name": "spacing"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "SIGMAS",
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            56
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ExtendIntermediateSigmas",
+        "ue_properties": {
+          "version": "7.8",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        1,
+        0.6500000000000001,
+        0,
+        "cosine"
+      ],
+      "widgets_values_named": {
+        "steps": 1,
+        "start_at_sigma": 0.6500000000000001,
+        "end_at_sigma": 0,
+        "spacing": "cosine"
+      }
+    },
+    {
+      "id": 42,
+      "type": "SplitSigmas",
+      "pos": [
+        4100,
+        -1620
+      ],
+      "size": [
+        250,
+        80
+      ],
+      "flags": {},
+      "order": 55,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "Sigmas",
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 56
+        },
+        {
+          "label": "step",
+          "name": "step",
+          "type": "INT",
+          "widget": {
+            "name": "step"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "high_sigmas",
+          "name": "high_sigmas",
+          "type": "SIGMAS",
+          "links": [
+            54
+          ]
+        },
+        {
+          "label": "low_sigmas",
+          "name": "low_sigmas",
+          "type": "SIGMAS",
+          "links": [
+            66
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SplitSigmas",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {
+          "step": true
+        }
+      },
+      "widgets_values": [
+        4
+      ],
+      "widgets_values_named": {
+        "step": 4
+      }
+    },
+    {
+      "id": 41,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        4380,
+        -1610
+      ],
+      "size": [
+        290,
+        290
+      ],
+      "flags": {},
+      "order": 60,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "噪波生成",
+          "name": "noise",
+          "type": "NOISE",
+          "link": 51
+        },
+        {
+          "label": "引导",
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 52
+        },
+        {
+          "label": "采样器",
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 53
+        },
+        {
+          "label": "Sigmas",
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 54
+        },
+        {
+          "label": "Latent",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 110
+        }
+      ],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "output",
+          "type": "LATENT",
+          "links": []
+        },
+        {
+          "label": "降噪输出",
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": [
+            47
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {}
+      }
+    },
+    {
+      "id": 51,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        4700,
+        -1600
+      ],
+      "size": [
+        280,
+        280
+      ],
+      "flags": {},
+      "order": 72,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "噪波生成",
+          "name": "noise",
+          "type": "NOISE",
+          "link": 63
+        },
+        {
+          "label": "引导",
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 225
+        },
+        {
+          "label": "采样器",
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 65
+        },
+        {
+          "label": "Sigmas",
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 66
+        },
+        {
+          "label": "Latent",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 216
+        }
+      ],
+      "outputs": [
+        {
+          "label": "输出",
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            125,
+            132,
+            133
+          ]
+        },
+        {
+          "label": "降噪输出",
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {}
+      }
+    },
+    {
+      "id": 131,
+      "type": "WhaleTransAccumulateSaveVideo",
+      "pos": [
+        5010,
+        -1630
+      ],
+      "size": [
+        710,
+        590
+      ],
+      "flags": {},
+      "order": 79,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "*",
+          "link": 196
+        },
+        {
+          "name": "last",
+          "type": "BOOLEAN",
+          "link": 197
+        },
+        {
+          "name": "flow_control",
+          "shape": 7,
+          "type": "FLOW_CONTROL",
+          "link": 198
+        },
+        {
+          "name": "feedback_latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": 199
+        },
+        {
+          "name": "complete_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "WhaleTransAccumulateSaveVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "video/ComfyUI",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "video/ComfyUI",
+        "format": "auto",
+        "codec": "auto"
+      }
+    },
+    {
+      "id": 114,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        3580,
+        -2600
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "可选连接",
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "初稿审核",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      }
+    },
+    {
+      "id": 124,
+      "type": "Loop",
+      "pos": [
+        2870,
+        -1140
+      ],
+      "size": [
+        260,
+        170
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "iteration",
+          "type": "INT",
+          "links": [
+            170
+          ]
+        },
+        {
+          "name": "is_first",
+          "type": "BOOLEAN",
+          "links": [
+            171
+          ]
+        },
+        {
+          "name": "is_last",
+          "type": "BOOLEAN",
+          "links": [
+            172
+          ]
+        },
+        {
+          "name": "flow_control",
+          "type": "FLOW_CONTROL",
+          "links": [
+            173
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Loop",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        3
+      ],
+      "widgets_values_named": {
+        "num_iterations": 3
+      }
+    },
+    {
+      "id": 11,
+      "type": "MiniMaxH3TimelinePlanner",
+      "pos": [
+        1480,
+        -2680
+      ],
+      "size": [
+        1100,
+        1710
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "prompt_index",
+          "shape": 7,
+          "type": "INT",
+          "link": 157
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 174
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 175
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Material Plan",
+          "type": "MINIMAX_H3_TIMELINE_PLAN",
+          "links": [
+            5,
+            107
+          ]
+        },
+        {
+          "name": "Omni Media Bundle",
+          "type": "MINIMAX_H3_OMNI_MEDIA_BUNDLE",
+          "links": null
+        },
+        {
+          "name": "Segment Plan",
+          "type": "MINIMAX_H3_FINITE_SEGMENT_PLAN",
+          "links": null
+        },
+        {
+          "name": "Segment Prompt",
+          "type": "STRING",
+          "links": [
+            158,
+            159
+          ]
+        },
+        {
+          "name": "Segment Frames",
+          "type": "INT",
+          "links": [
+            235
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3TimelinePlanner",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        608,
+        352,
+        15.1,
+        "{\"version\":5,\"fps\":24,\"globalPrompt\":\"\",\"selection\":{\"start\":0,\"duration\":15.083333333333334},\"videoAudioEnabled\":true,\"videoClips\":[],\"images\":[],\"audios\":[],\"segmentConfig\":{\"count\":1,\"mode\":\"timeline\",\"segments\":[{\"enabled\":true,\"images\":[],\"audios\":[],\"prompt\":\"\",\"startFrame\":0,\"endFrame\":362}],\"activeIndex\":0}}",
+        ""
+      ],
+      "widgets_values_named": {
+        "width": 608,
+        "height": 352,
+        "generation_seconds": 15.1,
+        "timeline_data": "{\"version\":5,\"fps\":24,\"globalPrompt\":\"\",\"selection\":{\"start\":0,\"duration\":15.083333333333334},\"videoAudioEnabled\":true,\"videoClips\":[],\"images\":[],\"audios\":[],\"segmentConfig\":{\"count\":1,\"mode\":\"timeline\",\"segments\":[{\"enabled\":true,\"images\":[],\"audios\":[],\"prompt\":\"\",\"startFrame\":0,\"endFrame\":362}],\"activeIndex\":0}}",
+        "minimax_h3_timeline": ""
+      }
+    },
+    {
+      "id": 115,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        3510,
+        -1710
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "可选连接",
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "潜空间放大",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      }
+    }
+  ],
+  "links": [
+    [
+      5,
+      11,
+      0,
+      6,
+      3,
+      "MINIMAX_H3_TIMELINE_PLAN"
+    ],
+    [
+      10,
+      6,
+      0,
+      10,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      11,
+      6,
+      1,
+      10,
+      1,
+      "LATENT"
+    ],
+    [
+      19,
+      10,
+      0,
+      12,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      21,
+      14,
+      0,
+      17,
+      0,
+      "NOISE"
+    ],
+    [
+      22,
+      12,
+      0,
+      17,
+      1,
+      "GUIDER"
+    ],
+    [
+      23,
+      13,
+      0,
+      17,
+      2,
+      "SAMPLER"
+    ],
+    [
+      24,
+      9,
+      0,
+      17,
+      3,
+      "SIGMAS"
+    ],
+    [
+      25,
+      10,
+      1,
+      17,
+      4,
+      "LATENT"
+    ],
+    [
+      27,
+      17,
+      0,
+      19,
+      0,
+      "LATENT"
+    ],
+    [
+      29,
+      17,
+      0,
+      20,
+      0,
+      "LATENT"
+    ],
+    [
+      31,
+      17,
+      0,
+      21,
+      0,
+      "LATENT"
+    ],
+    [
+      32,
+      20,
+      0,
+      21,
+      1,
+      "IMAGE"
+    ],
+    [
+      34,
+      19,
+      0,
+      21,
+      3,
+      "AUDIO"
+    ],
+    [
+      35,
+      21,
+      1,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      36,
+      21,
+      2,
+      23,
+      1,
+      "AUDIO"
+    ],
+    [
+      47,
+      41,
+      1,
+      33,
+      0,
+      "LATENT"
+    ],
+    [
+      48,
+      30,
+      0,
+      37,
+      0,
+      "SIGMAS"
+    ],
+    [
+      49,
+      33,
+      0,
+      38,
+      0,
+      "LATENT"
+    ],
+    [
+      51,
+      35,
+      0,
+      41,
+      0,
+      "NOISE"
+    ],
+    [
+      52,
+      32,
+      0,
+      41,
+      1,
+      "GUIDER"
+    ],
+    [
+      53,
+      34,
+      0,
+      41,
+      2,
+      "SAMPLER"
+    ],
+    [
+      54,
+      42,
+      0,
+      41,
+      3,
+      "SIGMAS"
+    ],
+    [
+      56,
+      37,
+      0,
+      42,
+      0,
+      "SIGMAS"
+    ],
+    [
+      59,
+      33,
+      1,
+      44,
+      1,
+      "LATENT"
+    ],
+    [
+      63,
+      35,
+      0,
+      51,
+      0,
+      "NOISE"
+    ],
+    [
+      65,
+      34,
+      0,
+      51,
+      2,
+      "SAMPLER"
+    ],
+    [
+      66,
+      42,
+      1,
+      51,
+      3,
+      "SIGMAS"
+    ],
+    [
+      81,
+      57,
+      0,
+      58,
+      0,
+      "MODEL"
+    ],
+    [
+      82,
+      58,
+      0,
+      59,
+      0,
+      "MODEL"
+    ],
+    [
+      83,
+      64,
+      0,
+      63,
+      0,
+      "MODEL"
+    ],
+    [
+      84,
+      59,
+      0,
+      64,
+      0,
+      "MODEL"
+    ],
+    [
+      85,
+      61,
+      0,
+      65,
+      0,
+      "VAE"
+    ],
+    [
+      86,
+      60,
+      0,
+      66,
+      0,
+      "VAE"
+    ],
+    [
+      87,
+      62,
+      0,
+      67,
+      0,
+      "CLIP"
+    ],
+    [
+      88,
+      68,
+      0,
+      9,
+      0,
+      "MODEL"
+    ],
+    [
+      89,
+      68,
+      0,
+      12,
+      0,
+      "MODEL"
+    ],
+    [
+      90,
+      69,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      91,
+      70,
+      0,
+      6,
+      1,
+      "VAE"
+    ],
+    [
+      92,
+      70,
+      0,
+      20,
+      1,
+      "VAE"
+    ],
+    [
+      93,
+      71,
+      0,
+      6,
+      2,
+      "VAE"
+    ],
+    [
+      94,
+      71,
+      0,
+      19,
+      1,
+      "VAE"
+    ],
+    [
+      99,
+      75,
+      0,
+      77,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      100,
+      75,
+      1,
+      77,
+      1,
+      "LATENT"
+    ],
+    [
+      102,
+      79,
+      0,
+      75,
+      1,
+      "VAE"
+    ],
+    [
+      103,
+      80,
+      0,
+      75,
+      2,
+      "VAE"
+    ],
+    [
+      104,
+      81,
+      0,
+      75,
+      0,
+      "CLIP"
+    ],
+    [
+      107,
+      11,
+      0,
+      75,
+      3,
+      "MINIMAX_H3_TIMELINE_PLAN"
+    ],
+    [
+      109,
+      77,
+      0,
+      32,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      110,
+      77,
+      1,
+      41,
+      4,
+      "LATENT"
+    ],
+    [
+      125,
+      51,
+      0,
+      78,
+      0,
+      "LATENT"
+    ],
+    [
+      127,
+      84,
+      0,
+      78,
+      2,
+      "INT"
+    ],
+    [
+      132,
+      51,
+      0,
+      95,
+      0,
+      "LATENT"
+    ],
+    [
+      133,
+      51,
+      0,
+      96,
+      0,
+      "LATENT"
+    ],
+    [
+      134,
+      78,
+      1,
+      98,
+      0,
+      "IMAGE"
+    ],
+    [
+      135,
+      78,
+      2,
+      98,
+      1,
+      "AUDIO"
+    ],
+    [
+      137,
+      98,
+      0,
+      99,
+      0,
+      "VIDEO"
+    ],
+    [
+      139,
+      95,
+      0,
+      78,
+      1,
+      "IMAGE"
+    ],
+    [
+      140,
+      96,
+      0,
+      78,
+      3,
+      "AUDIO"
+    ],
+    [
+      142,
+      100,
+      0,
+      10,
+      3,
+      "INT"
+    ],
+    [
+      143,
+      100,
+      0,
+      21,
+      2,
+      "INT"
+    ],
+    [
+      144,
+      84,
+      0,
+      77,
+      3,
+      "INT"
+    ],
+    [
+      147,
+      103,
+      0,
+      10,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      149,
+      94,
+      0,
+      105,
+      0,
+      "INT"
+    ],
+    [
+      150,
+      106,
+      0,
+      14,
+      0,
+      "INT"
+    ],
+    [
+      151,
+      107,
+      0,
+      35,
+      0,
+      "INT"
+    ],
+    [
+      154,
+      111,
+      0,
+      77,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      155,
+      72,
+      0,
+      30,
+      0,
+      "MODEL"
+    ],
+    [
+      156,
+      72,
+      0,
+      32,
+      0,
+      "MODEL"
+    ],
+    [
+      157,
+      108,
+      0,
+      11,
+      0,
+      "INT"
+    ],
+    [
+      158,
+      11,
+      3,
+      6,
+      4,
+      "STRING"
+    ],
+    [
+      159,
+      11,
+      3,
+      75,
+      4,
+      "STRING"
+    ],
+    [
+      163,
+      84,
+      0,
+      121,
+      0,
+      "INT"
+    ],
+    [
+      164,
+      121,
+      0,
+      77,
+      4,
+      "LATENT"
+    ],
+    [
+      166,
+      100,
+      0,
+      122,
+      0,
+      "INT"
+    ],
+    [
+      167,
+      122,
+      0,
+      10,
+      4,
+      "LATENT"
+    ],
+    [
+      170,
+      124,
+      0,
+      74,
+      0,
+      "INT"
+    ],
+    [
+      171,
+      124,
+      1,
+      101,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      172,
+      124,
+      2,
+      102,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      173,
+      124,
+      3,
+      118,
+      0,
+      "FLOW_CONTROL"
+    ],
+    [
+      174,
+      125,
+      0,
+      11,
+      1,
+      "INT"
+    ],
+    [
+      175,
+      125,
+      1,
+      11,
+      2,
+      "INT"
+    ],
+    [
+      179,
+      78,
+      0,
+      127,
+      0,
+      "LATENT"
+    ],
+    [
+      181,
+      125,
+      0,
+      127,
+      1,
+      "INT"
+    ],
+    [
+      182,
+      125,
+      1,
+      127,
+      2,
+      "INT"
+    ],
+    [
+      191,
+      23,
+      0,
+      130,
+      0,
+      "VIDEO"
+    ],
+    [
+      192,
+      80,
+      0,
+      96,
+      1,
+      "VAE"
+    ],
+    [
+      193,
+      79,
+      0,
+      95,
+      1,
+      "VAE"
+    ],
+    [
+      196,
+      99,
+      0,
+      131,
+      0,
+      "*"
+    ],
+    [
+      197,
+      120,
+      0,
+      131,
+      1,
+      "BOOLEAN"
+    ],
+    [
+      198,
+      119,
+      0,
+      131,
+      2,
+      "FLOW_CONTROL"
+    ],
+    [
+      199,
+      127,
+      0,
+      131,
+      3,
+      "LATENT"
+    ],
+    [
+      200,
+      130,
+      0,
+      132,
+      0,
+      "*"
+    ],
+    [
+      201,
+      104,
+      0,
+      132,
+      1,
+      "BOOLEAN"
+    ],
+    [
+      202,
+      123,
+      0,
+      132,
+      2,
+      "FLOW_CONTROL"
+    ],
+    [
+      203,
+      21,
+      0,
+      132,
+      3,
+      "LATENT"
+    ],
+    [
+      216,
+      44,
+      0,
+      51,
+      4,
+      "LATENT"
+    ],
+    [
+      225,
+      150,
+      0,
+      51,
+      1,
+      "GUIDER"
+    ],
+    [
+      228,
+      72,
+      0,
+      150,
+      0,
+      "MODEL"
+    ],
+    [
+      230,
+      38,
+      0,
+      151,
+      0,
+      "LATENT"
+    ],
+    [
+      231,
+      151,
+      1,
+      44,
+      0,
+      "LATENT"
+    ],
+    [
+      233,
+      151,
+      0,
+      150,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      234,
+      75,
+      0,
+      151,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      235,
+      11,
+      4,
+      151,
+      2,
+      "INT"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "初稿审核",
+      "bounding": [
+        3480,
+        -2710,
+        2270,
+        910
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "最终长视频-潜空间放大",
+      "bounding": [
+        3480,
+        -1790,
+        2270,
+        820
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "模型加载",
+      "bounding": [
+        2590,
+        -1790,
+        880,
+        570
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "片段控制+种子控制",
+      "bounding": [
+        2590,
+        -1210,
+        880,
+        240
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "整片提示词输入——可选",
+      "bounding": [
+        2590,
+        -2710,
+        880,
+        908
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6092716508174756,
+      "offset": [
+        -1102.9923953684872,
+        3044.2812505694756
+      ]
+    },
+    "frontendVersion": "1.52.7",
+    "ue_links": [],
+    "VHS_latentpreview": true,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "links_added_by_ue": []
+  },
+  "version": 0.4
+}
