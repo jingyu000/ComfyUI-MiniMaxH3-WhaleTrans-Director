@@ -1,6 +1,6 @@
 # ComfyUI MiniMax H3 WhaleTrans Director
 
-基于 [Songssx/ComfyUI-MiniMaxH3-TimelineDirector](https://github.com/Songssx/ComfyUI-MiniMaxH3-TimelineDirector) 开发的 UI 增强版开源插件。保留了原作者时间线导演台的全部功能，在此基础上独立实现新增 **6 个自定义节点**（3 节点循环系统 + 3 个工具节点）和大量 UI 优化。循环系统使用 ComfyUI 官方 **expand 递归展开机制**实现，安装后无需替换核心文件即可使用。
+基于 [Songssx/ComfyUI-MiniMaxH3-TimelineDirector](https://github.com/Songssx/ComfyUI-MiniMaxH3-TimelineDirector) 开发的 UI 增强版开源插件。保留了原作者时间线导演台的全部功能，在此基础上独立实现新增 **6 个自定义节点**（3 节点循环系统 + 3 个工具节点）和大量 UI 优化。循环系统使用 ComfyUI 官方 **expand 递归展开机制**实现，开箱即用。
 
 ## 🎯 设计理念
 
@@ -66,19 +66,19 @@ git clone https://github.com/jingyu000/ComfyUI-MiniMaxH3-WhaleTrans-Director.git
 
 ![Loop 循环节点特写](docs/images/loop-node-closeup.png)
 
-| 节点名 | 显示名 | 说明 |
-|--------|--------|------|
-| `WhaleTransLoop` | WhaleTrans Loop | 循环开始节点，控制循环次数，输出 iteration / is_first / is_last / flow_control |
-| `WhaleTransLoopVariable` | WhaleTrans Loop Variable | 循环变量节点，在循环体内传递 latent 变量（上一段反馈 latent） |
-| `WhaleTransAccumulateSaveVideo` | WhaleTrans Accumulate Save Video | 累积保存视频，每次迭代追加帧，最后一次完成编码；同时作为 expand 循环的触发节点 |
+| 节点名 | 说明 |
+|--------|------|
+| `WhaleTransLoop` | 循环开始节点，控制循环次数，输出 iteration / is_first / is_last / flow_control |
+| `WhaleTransLoopVariable` | 循环变量节点，在循环体内传递 latent 变量（上一段反馈 latent） |
+| `WhaleTransAccumulateSaveVideo` | 累积保存视频，每次迭代追加帧，最后一次完成编码；同时作为 expand 循环的触发节点 |
 
 #### 工具节点（3 个）
 
-| 节点名 | 显示名 | 说明 |
-|--------|--------|------|
-| `H3HighRefineGuide` | H3 HIGH 二次采样引导 | 把 3D 放大后的 latent 作为 direct latent guide 注入条件，同时透传 latent，解决导演台二次采样尺寸冲突 |
-| `H3LatentResolution` | H3 Latent 分辨率 | 从 H3 NestedTensor 或普通 latent 读取像素宽高（自动乘 16 倍 VAE 下采样） |
-| `H3LatentShrink` | H3 Latent 空间缩放 | H3 专用 latent 空间尺寸缩放，支持 NestedTensor（视频+音频打包），用于回传时缩回原始尺寸 |
+| 节点名 | 说明 |
+|--------|------|
+| `H3HighRefineGuide` | 把 3D 放大后的 latent 作为 direct latent guide 注入条件，同时透传 latent，解决导演台二次采样尺寸冲突 |
+| `H3LatentResolution` | 从 H3 NestedTensor 或普通 latent 读取像素宽高（自动乘 16 倍 VAE 下采样） |
+| `H3LatentShrink` | H3 专用 latent 空间尺寸缩放，支持 NestedTensor（视频+音频打包），用于回传时缩回原始尺寸 |
 
 > **说明**：本插件完整保留了原作者的全部节点（时间线导演台、素材规划台、规划编码器、Omni素材包提示词桥、循环分段提示词、循环续段、片段去重等）。原作者的循环辅助节点最初设计为配合第三方 generic-loops 方案使用，本插件的 WhaleTrans 3 节点循环系统是独立实现，使用官方 expand 机制，不需要融合任何第三方循环方案。两套循环系统可以按需选择使用。
 
