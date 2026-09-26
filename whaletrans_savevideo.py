@@ -309,6 +309,11 @@ class WhaleTransAccumulateSaveVideo:
 
         # 还有迭代：用 expand 递归展开循环体
         # flow_control 是 rawLink 格式 [loop_node_id, socket]（rawLink=True 不解析输出值）
+        if flow_control is None or not isinstance(flow_control, (list, tuple)) or len(flow_control) < 1:
+            raise ValueError(
+                "WhaleTransAccumulateSaveVideo 必须连接 flow_control 输入。"
+                "请从 WhaleTrans Loop 节点的 flow_control 输出端连一条线到本节点的 flow_control 输入端。"
+            )
         open_node = flow_control[0]
 
         # 从 SaveVideo 向上游收集所有依赖节点（只基于 link 关系）

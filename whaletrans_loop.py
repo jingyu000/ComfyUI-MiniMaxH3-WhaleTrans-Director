@@ -117,7 +117,14 @@ class WhaleTransLoopVariable:
         #    从全局缓存读取对应 latent，避免把大张量复制 N 份到展开图
         # 3. 实际 latent 张量：兼容旧行为
         if isinstance(next_value, str) and next_value.startswith("latent_"):
-            return (_WHALE_LATENT_CACHE.get(next_value),)
+            cached = _WHALE_LATENT_CACHE.get(next_value)
+            if cached is None:
+                raise ValueError(
+                    f"WhaleTransLoopVariable 缓存未找到: {next_value}。"
+                    "这通常是因为上一次运行被中断后残留了展开节点，或者 SaveVideo 没有正确写入 feedback_latent。"
+                    "请重新运行工作流（不要从中断点继续）。"
+                )
+            return (cached,)
         return (next_value,)
 
 

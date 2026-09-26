@@ -188,7 +188,7 @@ def install_drift_control_av_model(
     if not streams or not torch.is_tensor(streams[0]) or streams[0].ndim != 5:
         raise ValueError("Drift-Control AV requires a MiniMax H3 AV latent")
     prefix_steps = int(prefix_steps)
-    if prefix_steps < 1 or prefix_steps >= int(streams[0].shape[2]):
+    if prefix_steps < 1 or prefix_steps > int(streams[0].shape[2]):
         raise ValueError("The Drift-Control prefix must fit before newly generated video latent steps")
 
     patched = model.clone()

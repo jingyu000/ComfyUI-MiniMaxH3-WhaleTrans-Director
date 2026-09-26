@@ -21,6 +21,7 @@ from .minimax_h3_loop import (
     MiniMaxH3LoopSegmentFinalize,
 )
 from .h3_latent_scale import H3LatentShrink, H3LatentResolution, H3HighRefineGuide
+from .experimental_latent_guide import MiniMaxH3AddLatentGuide, MiniMaxH3VisualDifferenceMetrics
 from .whaletrans_loop import WhaleTransLoop, WhaleTransLoopVariable
 try:
     from .whaletrans_savevideo import WhaleTransAccumulateSaveVideo
@@ -47,6 +48,8 @@ NODE_CLASS_MAPPINGS = {
     "H3LatentShrink": H3LatentShrink,
     "H3LatentResolution": H3LatentResolution,
     "H3HighRefineGuide": H3HighRefineGuide,
+    "MiniMaxH3AddLatentGuide": MiniMaxH3AddLatentGuide,
+    "MiniMaxH3VisualDifferenceMetrics": MiniMaxH3VisualDifferenceMetrics,
     "WhaleTransLoop": WhaleTransLoop,
     "WhaleTransLoopVariable": WhaleTransLoopVariable,
     # 旧节点名别名：兼容已有工作流，无需删除重连节点
@@ -75,6 +78,8 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "H3LatentShrink": "H3 Latent 空间缩放",
     "H3LatentResolution": "H3 Latent 分辨率",
     "H3HighRefineGuide": "H3 HIGH 二次采样引导",
+    "MiniMaxH3AddLatentGuide": "MiniMax H3 Direct Latent Guide (Experimental)",
+    "MiniMaxH3VisualDifferenceMetrics": "MiniMax H3 Video Difference Metrics (Experimental)",
     "WhaleTransLoop": "WhaleTrans Loop",
     "WhaleTransLoopVariable": "WhaleTrans Loop Variable",
     "Loop": "Loop (WhaleTrans)",

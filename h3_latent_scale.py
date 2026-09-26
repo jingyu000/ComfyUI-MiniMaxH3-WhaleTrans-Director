@@ -162,15 +162,3 @@ class H3HighRefineGuide:
             # 普通 latent 降级处理：直接透传，不注入引导
             print(f"[H3 HighRefineGuide] 普通latent（非NestedTensor），直接透传，未注入引导")
             return (positive, source_latent)
-
-
-NODE_CLASS_MAPPINGS = {
-    "H3LatentShrink": H3LatentShrink,
-    "H3LatentResolution": H3LatentResolution,
-    "H3HighRefineGuide": H3HighRefineGuide,
-}
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "H3LatentShrink": "H3 Latent 空间缩放",
-    "H3LatentResolution": "H3 Latent 分辨率",
-    "H3HighRefineGuide": "H3 HIGH 二次采样引导",
-}
