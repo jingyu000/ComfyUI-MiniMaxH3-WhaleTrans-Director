@@ -2,39 +2,58 @@
 
 基于 [Songssx/ComfyUI-MiniMaxH3-TimelineDirector](https://github.com/Songssx/ComfyUI-MiniMaxH3-TimelineDirector) 开发的 UI 增强版开源插件。保留了原作者时间线导演台的全部功能，在此基础上独立实现新增 **6 个自定义节点**（3 节点循环系统 + 3 个工具节点）和大量 UI 优化。循环系统使用 ComfyUI 官方 **expand 递归展开机制**实现，开箱即用。
 
-
 ## 🔥 v8.0 高效优化版
 
-> JS 代码从 1855 行增至 4108 行，后端从 79KB 增至 103KB，全面升级。
+JS 代码从 1855 行增至 4108 行，后端从 79KB 增至 103KB，全面升级。
 
 ### 📦 批量管理
+
 - **批量提示词导入节点**：粘贴 `--- SEGMENT ---` 分隔的全部分段提示词，自动按顺序填入
-- **分段框选成组**：框选多个分段右键新建分组，文件夹式管理长视频，支持重命名/解散
+- **分段框选成组**：框选多个分段右键新建分组，文件夹式管理长视频，支持重命名/解散/移动分段
+
+![分段框选新建分组](docs/images/QQ20261026-235840.png)
+
+![分组标签切换](docs/images/QQ20261026-235955.png)
+
+![分组右键菜单](docs/images/QQ20261027-000049.png)
+
+![分组内移动分段](docs/images/QQ20261027-000108.png)
+
 - **批量启用/禁用**：小眼睛一键开关，只跑某几段调试
 - **素材分类管理**：人物/道具/场景/音频参考/音乐参考分类存放
 
 ### 🎨 提示词编辑增强
+
 - **@提及菜单**：输入 @ 快速插入 `<Picture N>` / `<Audio N>` 素材引用
+
+![@提及菜单](docs/images/QQ20261026-235815.png)
+
 - **双击改编号/改名**：快速定位段落
 - **提示词富文本解析**：支持格式化编辑与序列化
 
 ### 🔑 多服务商 API 配置
+
 - 内置智谱 / xFlow / Ollama / 阿里云 / DeepSeek / 豆包等服务商
 - 点大 `+` 号自定义添加 OpenAI 兼容接口，可单独删除
 - 每个服务商独立保存地址、Key、LLM/VLM 模型
 - 切换服务自动记住各自配置，互不干扰
 
 ### 📝 提示词规则系统
+
 - 内置 10 条优化规则（通用/R2VA/3D动画/品牌宣传片等）
 - 自定义添加/编辑/删除规则，编辑面板支持名称+内容
 - 规则保存到后端 `custom_rules.json`，刷新不丢失
 - 每个服务商可单独选用不同规则
 
+![API 与规则设置](docs/images/QQ20261027-000029.png)
+
 ### 🔄 音频与循环
+
 - **原音全链路锁定**：参考视频音轨完整保留，不被生成替代
 - **分段视频单独保存**：每段自动输出 segment_XXX.mp4
 - **运行隔离**：中断后自动重置，从第1段重新开始
 - **显存优化**：全局latent缓存，多段不爆显存
+
 ## 🎯 设计理念
 
 本插件由视频创作者开发，从实际创作流程出发，核心追求：**可玩性和灵活性**。
@@ -58,18 +77,6 @@
 
 ![导演台 UI 界面](docs/images/director-ui-overview.png)
 
-## ⚙️ API 与提示词优化设置
-右键导演台节点 → 设置，打开提示词优化 API 配置面板：
-
-![API 设置](docs/images/QQ20261026-235801.png)
-
-- **多服务商支持**：智谱 / xFlow / Ollama / 阿里云 / DeepSeek / 豆包，点大 `+` 号可添加自定义 OpenAI 兼容接口
-- **每服务商独立配置**：API 地址、Key、LLM 模型、VLM 模型及选用规则各自保存，切换服务自动切回
-- **10 条内置规则**：仅通用方案 / R2VA 加强版 / 3D 动画短片 / 品牌宣传片等，只读
-- **自定义规则**：点「+ 添加提示词优化规则」新建，保存后自动出现在列表底部，可编辑可删除
-
-![提示词规则](docs/images/QQ20261026-235815.png)
-
 ## ✨ 功能特性
 
 - **3 节点循环系统**：Loop / LoopVariable / AccumulateSaveVideo，内置循环无需融合第三方方案
@@ -84,11 +91,13 @@
 ## 📦 安装
 
 ### 方法一：Releases 下载（推荐）
+
 1. 前往 [Releases](https://github.com/jingyu000/ComfyUI-MiniMaxH3-WhaleTrans-Director/releases) 页面下载最新版 zip
 2. 解压到 ComfyUI 的 `custom_nodes` 目录
 3. 重启 ComfyUI
 
 ### 方法二：git clone
+
 ```bash
 cd ComfyUI/custom_nodes
 git clone https://github.com/jingyu000/ComfyUI-MiniMaxH3-WhaleTrans-Director.git
@@ -143,6 +152,8 @@ git clone https://github.com/jingyu000/ComfyUI-MiniMaxH3-WhaleTrans-Director.git
 
 ![基础版工作流整体图](docs/images/workflow-basic-overview.png)
 
+![完整工作流示例](docs/images/QQ20261026-235801.png)
+
 基础版工作流结构：
 
 ```
@@ -158,6 +169,7 @@ git clone https://github.com/jingyu000/ComfyUI-MiniMaxH3-WhaleTrans-Director.git
 ```
 
 **关键连线：**
+
 - 一次采样器 Latent 口：原始尺寸空 AV latent
 - 一次采样器引导口：循环续段后的 positive（包含上一段 latent 引导，保证段间连续性）
 - 3D 放大输入：一次采样器输出
@@ -172,15 +184,19 @@ git clone https://github.com/jingyu000/ComfyUI-MiniMaxH3-WhaleTrans-Director.git
 ## ⚙️ 技术实现
 
 ### 循环机制
+
 使用 ComfyUI 官方 `expand` 递归展开机制，AccumulateSaveVideo 节点在每次迭代执行后，动态展开下一次迭代的所有循环体节点副本。Loop 副本的 `iteration_offset` 递增，据此计算当前迭代序号。
 
 ### 内存优化
+
 展开图中 LoopVariable 副本的 `next_value` 不存储实际 latent 张量，而是存储全局缓存的 key 字符串（格式 `latent_{save_video_id}_{iteration}`），执行时按 key 从 `_WHALE_LATENT_CACHE` 字典读取。避免 N 次迭代复制 N 份大张量导致显存爆炸。
 
 ### 运行隔离
+
 使用 `dynprompt` 对象 ID 区分不同次运行。每次点击"运行" ComfyUI 创建新的 DynamicPrompt 对象，SaveVideo 执行时检测到 ID 变化，自动清理上一次中断残留的视频编码器和 latent 缓存，`current_iteration` 归零，确保从第 1 段重新开始。
 
 ### HIGH 二次采样引导
+
 导演台（规划编码器）生成的条件基于原始 latent 尺寸（如 38x22），3D 放大后 latent 尺寸变化（如 56x32），直接接入二次采样器会因条件与 latent 尺寸不匹配报错。H3HighRefineGuide 节点把放大后的 latent 作为 `direct latent guide` 注入条件的 `minimax_keyframes`，同时透传放大后的 latent 作为二次采样初值，解决尺寸冲突。
 
 ## 📖 研发背景与技术历程
@@ -213,22 +229,29 @@ git clone https://github.com/jingyu000/ComfyUI-MiniMaxH3-WhaleTrans-Director.git
 ## ❓ 常见问题
 
 **Q: 中断后再运行，循环从中间开始而不是第 1 段？**
+
 A: 已修复。v1.0+ 版本使用运行隔离机制，每次新运行自动清理残留状态。如果仍有问题，重启 ComfyUI 可彻底清除。
 
 **Q: 二次采样报 `shape mismatch` 错误？**
+
 A: 检查二次采样的条件是否接了循环续段后的 positive（包含 previous_latent 引导）。应使用 H3 HIGH 二次采样引导节点，positive 接导演台直接输出的干净 positive。
 
 **Q: 多段循环时显存占用高？**
+
 A: 已优化。使用全局 latent 缓存 + key 引用，不会复制多份大张量。建议在循环体内使用 VRAM Debug 节点释放中间模型显存。
 
 **Q: `ImageGenResolutionFromLatent` 报 `too many values to unpack (expected 4)`？**
+
 A: 普通节点不支持 H3 的 5D NestedTensor。使用插件自带的 `H3 Latent 分辨率` 节点替代。
 
 **Q: 基于哪个项目开发的？和原作者的关系？**
-A: 基于 [Songssx/ComfyUI-MiniMaxH3-TimelineDirector](https://github.com/Songssx/ComfyUI-MiniMaxH3-TimelineDirector) 开发，完整保留了原作者的全部节点（时间线导演台、素材规划台、规划编码器、Omni素材包提示词桥、循环分段提示词、循环续段、片段去重等）和基础 UI。在此基础上新增了 6 个自定义节点（WhaleTrans 3 节点循环系统 + HIGH 二次采样引导 + Latent 分辨率 + Latent 空间缩放）和大量 UI 优化（JS 代码量从 1173 行增加到 1855 行）。
+
+A: 基于 [Songssx/ComfyUI-MiniMaxH3-TimelineDirector](https://github.com/Songssx/ComfyUI-MiniMaxH3-TimelineDirector) 开发，完整保留了原作者的全部节点（时间线导演台、素材规划台、规划编码器、Omni素材包提示词桥、循环分段提示词、循环续段、片段去重等）和基础 UI。在此基础上新增了 6 个自定义节点（WhaleTrans 3 节点循环系统 + HIGH 二次采样引导 + Latent 分辨率 + Latent 空间缩放）和大量 UI 优化。
 
 **Q: 原作者的循环节点、WhaleTrans 循环、官方 Generic Loops 有什么区别？**
+
 A: 三套是不同的实现：
+
 - **原作者的循环辅助节点**（循环分段提示词、循环续段、片段去重）：最初设计为配合第三方 generic-loops 方案使用，需要替换 ComfyUI 核心文件
 - **官方 Generic Loops**（Start Loop / End Loop）：ComfyUI v0.36.0 内置的通用循环功能，由 rattus128 贡献，适用于通用场景
 - **WhaleTrans 3 节点循环系统**：本插件独立实现，基于官方 expand 递归展开机制，专门针对 H3 长视频做了优化（latent 回传、累积保存视频、运行隔离、显存优化等），不需要替换核心文件，下载安装即可使用
