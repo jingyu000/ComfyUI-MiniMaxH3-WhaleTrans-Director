@@ -1,5 +1,5 @@
 # ComfyUI MiniMax H3 WhaleTrans Director
-
+[English](README_EN.md) | 中文
 基于 [Songssx/ComfyUI-MiniMaxH3-TimelineDirector](https://github.com/Songssx/ComfyUI-MiniMaxH3-TimelineDirector) 开发的 UI 增强版开源插件。保留了原作者时间线导演台的全部功能，在此基础上独立实现新增 **6 个自定义节点**（3 节点循环系统 + 3 个工具节点）和大量 UI 优化。循环系统使用 ComfyUI 官方 **expand 递归展开机制**实现，开箱即用。
 
 ## 🎯 设计理念
